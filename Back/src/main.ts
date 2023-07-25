@@ -5,7 +5,7 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
-	
+	app.enableCors()
 	// Configuración de SWAGGER
 	const options = new DocumentBuilder()
 		.setTitle('U-Know platform API')

@@ -11,7 +11,7 @@ import { ChatModule } from './chat/chat.module';
 @Module({
 	imports: [
 		// STATIC CONNECTION VERSION
-		MongooseModule.forRoot('mongodb://127.0.0.1:27017/uknow'),
+		MongooseModule.forRoot('mongodb+srv://arielaparicio100:Principe1994@cluster0.7mvk5pl.mongodb.net/uknow'),
 
 		// DYNAMIC CONNECTION VERSION
 		// MongooseModule.forRootAsync({
