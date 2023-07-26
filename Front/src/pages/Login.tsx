@@ -30,7 +30,7 @@ const Login: React.FC = () => {
 
   return (
     <div>
-      <h2>Iniciar sesión</h2>
+      <h2 className='bg-red-500'>Iniciar sesión</h2>
       <input type="text" placeholder="Correo electrónico" value={email} onChange={(e) => setEmail(e.target.value)} />
       <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
       <button onClick={handleLogin}>Iniciar sesión</button>
