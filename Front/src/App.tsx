@@ -12,12 +12,12 @@ const App: FC = () => {
     <Router>
       <AuthProvider>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<RequireAuth allowedRoles={['user']} />}>
         <Route path="/protected" element={<Protected />} />
         </Route>
-        <Route path="/" element={<Home />} />
       </Routes>
       </AuthProvider>
     </Router>
