@@ -1,17 +1,25 @@
 import { FC } from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Login from './views/Login';
-import Register from './views/Register';
-import Home from './views/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Home from './pages/Home';
+import Protected from './pages/Protected';
+import { AuthProvider } from './context/AuthProvider';
+import RequireAuth from './components/RequireAuth';
 
 const App: FC = () => {
   return (
     <Router>
+      <AuthProvider>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route element={<RequireAuth allowedRoles={['user']} />}>
+        <Route path="/protected" element={<Protected />} />
+        </Route>
         <Route path="/" element={<Home />} />
       </Routes>
+      </AuthProvider>
     </Router>
   );
 };
