@@ -1,9 +1,14 @@
+import TagDifficulty from "@/UI/TagDifficulty"
+
 function CardHome() {
   return (
     <section className="card-home">
         <div className="image-section">
             {/* fondo con imagen del curso */}
-            <div>Advanced</div>{/* componente de dificultad */}
+            <TagDifficulty 
+                color="Advanced"
+                children="Advanced" 
+             />
             <div>4.3 stars</div>
             {/* componente valoracion */}
         </div>
