@@ -2,8 +2,8 @@ import React from 'react';
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <h2>Bienvenido a la aplicación</h2>
+    <div className='bg-red-500'>
+   <img src="hero.png" alt="" />
     </div>
   );
 };

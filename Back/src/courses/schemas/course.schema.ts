@@ -18,7 +18,7 @@ export class Course {
   	topic: string;
 
   @ApiProperty({ example: 'Beginner' })
-  @Prop({ required: true, enum: [ 'Beginner', 'Medium', 'Advanced' ] })
+  @Prop({ required: true, enum: [ 'Begginer', 'Medium', 'Advanced' ] })
   	difficulty: string;
 
   @ApiProperty({ example: [ 'HTML', 'CSS', 'JavaScript' ] })

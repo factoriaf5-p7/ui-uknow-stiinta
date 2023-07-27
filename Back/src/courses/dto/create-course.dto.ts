@@ -18,7 +18,7 @@ export class CreateCourseDto {
 	@IsNotEmpty()
 		topic: string;
 
-	@ApiProperty({ example: 'Beginner | Medium | Advanced' })
+	@ApiProperty({ example: 'Begginer | Medium | Advanced' })
 	@IsString()
 	@IsEnum(Difficulty)
 	@IsNotEmpty()
