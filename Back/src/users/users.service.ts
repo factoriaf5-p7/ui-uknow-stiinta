@@ -96,6 +96,17 @@ export class UsersService {
 		}
 	}
 
+	// async getProfile(user: any){
+	// 	console.log(user);
+		
+	// 	return {
+	// 		async findOneLogin(email:string) {
+	// 			return await this.userModel.findOne({ email });
+	// 		},
+	// 	}
+	
+	// }
+
 	async findOneWithCreatedCourses(id : ObjectId) {
 		try {
 			const createdCourses = await this.userModel.findOne({ _id: id }).select('created_courses').populate('created_courses');
