@@ -3,7 +3,7 @@ import TagDifficulty from "@/UI/TagDifficulty"
 function CardHome() {
   return (
     <section className="card-home w-4/5 flex-col m-auto">
-        <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat center ">
+        <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-36 bg-cover bg-center rounded-t-xl relative">
             
             <TagDifficulty 
                 color="Advanced"
