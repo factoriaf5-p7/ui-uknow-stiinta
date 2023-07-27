@@ -2,9 +2,9 @@ import TagDifficulty from "@/UI/TagDifficulty"
 
 function CardHome() {
   return (
-    <section className="card-home">
-        <div className="image-section">
-            {/* fondo con imagen del curso */}
+    <section className="card-home w-4/5 flex-col m-auto">
+        <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat center ">
+            
             <TagDifficulty 
                 color="Advanced"
                 children="Advanced" 
