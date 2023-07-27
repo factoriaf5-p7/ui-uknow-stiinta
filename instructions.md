@@ -25,7 +25,7 @@ A los requerimientos que se lanzaron para la parte de back-end, listados más ab
         - Al clicar el logo se navega a la home
         - Al clicar el avatar:
           - si no hay usuario logado navega a la página de login/register
-          - si el usuario está logado debe mostrar un menú con los elementos: profile, contents, logout. El avatar, así mismo debe mostrar el nombre del usuario cuando está logado.
+          - si el usuario está logado debe mostrar un menú con los elementos: profile, contents, signup. El avatar, así mismo debe mostrar el nombre del usuario cuando está logado.
       - Aspecto:
         - En modo móvil, la barra de navegación será de tipo bottom navigation, con todas las opciones del menú:
           ![bottom-navigation](https://lh3.googleusercontent.com/14jax4TqtGJ1R7uteNETMHtrB4_83FOVLCsLW3VxWh17Mle2RiCPiUwPgN0hEXqkCr-281geh88fDMuEZyGVTyhZ_j8hO9RHElEa=w1064-v0)
