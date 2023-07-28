@@ -44,7 +44,7 @@ function CardHome() {
                 />
                 <Average avg={course.average} />
               </div>
-              <div className="contain-section p-4 bg-white rounded-xl">
+              <div className="contain-section py-4 px-6 bg-white rounded-xl">
                 <h3 className="text-title font-bold mb-3">{course.name}</h3>
                 <p className="text-text mb-3">
                   Explore all the most exciting job roles based on your interest
@@ -52,16 +52,24 @@ function CardHome() {
                 </p>
                 <div className="tags flex gap-2 mb-4 flex-wrap">
                   {course.tags.map((tag) => (
-                    <h3 className="tag bg-gray-100 rounded-md px-1.5 py-1 text-text">
+                    <h3 className="tag bg-gray-100 rounded-md px-1.5 py-1 text-text text-sm">
                       {tag}
                     </h3>
                   ))}
                 </div>
-                <div className="buttons-card flex">
+                <div className="buttons-card flex gap-3 justify-between">
+                  <div className="flex gap-3">
                   <Button color="bg-btnClaro" text="text-text" children="Ver más" />
                   <Button color="bg-btnOscuro" text="text-white" children="Comprar" />
-                  <p>{course.price}/kwl</p>
+                  </div>
+               
+                  <p className=" text-slate-400"><strong className="text-black text-lg">{course.price}</strong>/kwl</p>
+                  
+                  
+                  
+                  
                 </div>
+                
               </div>
             </div>
           ))}
