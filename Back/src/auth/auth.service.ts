@@ -38,7 +38,7 @@ export class AuthService {
 			message: 'Login success.', 
 			status: HttpStatus.OK,
 			data: token,
-			roles: findUser.profile
+			roles: [findUser.profile]
 		};
 	}
 

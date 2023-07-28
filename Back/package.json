@@ -38,6 +38,7 @@
     "nodemailer": "^6.9.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
+    "socket.io": "^4.7.1",
     "swagger-ui-express": "^4.6.3",
     "vercel": "^31.0.1"
   },
