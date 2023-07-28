@@ -2,7 +2,7 @@ import { CreateCourse } from '@/types/createCourse.types';
 import axiosClient  from '../apiClient';
 
 export function getCourses(){
-    return axiosClient.get('/courses/average');
+    return axiosClient.get('/courses');
 }
 
 export function getCourse(id: string){

@@ -15,8 +15,8 @@ function CardHome() {
         const fetchCourses = async () => {
           try {
             const response: AxiosResponse = await getCourses();
-            console.log(response.data);
-            setCourses(response.data)
+            // console.log(response.data.data);
+            setCourses(response.data.data)           
           } catch (error) {
             console.error('Error al obtener los cursos:', error);
           } finally {
@@ -31,39 +31,35 @@ function CardHome() {
     <section>
         {isLoading ? (
             <div>Loading...</div>
-
-
-
-        ):(
-            <div className="card-home w-4/5 flex-col m-auto">
-        <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-36 bg-cover bg-center rounded-t-xl relative">
+        ):( 
+            <div>
+            {courses.map((course) => (
+                    <div key={course._id} className="card-home w-4/5 flex-col m-auto">
+                    <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-36 bg-cover bg-center rounded-t-xl relative">
             
             <TagDifficulty 
-                color="Advanced"
-                children="Advanced" 
+                color={course.difficulty as "Beginner" | "Medium" | "Advanced"}
+                children={course.difficulty}
              />
-            <div>4.3 stars</div>
-            {/* componente valoracion */}
+            <div>{course.average} stars</div>
         </div>
         <div className="contain-section">
-            <h3>Curso Nest.js</h3>
+            <h3>{course.name}</h3>
             <p>Explore all the most exciting job roles based on your interest and study major.</p>
             <div className="tags">
-                componente tags
+                {course.tags}
             </div>
             <div className="buttons-card">
                 <button>Ver más</button>
                 <button>Comprar</button>
-                <p>50/kwl</p>
+                <p>{course.price}/kwl</p>
+                </div>
             </div>
-        </div>
-
-    </div>
-
-        )
-    }
-    
-    </section>
+          </div>
+        ))}
+      </div>
+    )}
+  </section>
     )
 }
 
