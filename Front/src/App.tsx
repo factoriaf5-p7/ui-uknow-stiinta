@@ -9,8 +9,8 @@ import RequireAuth from './components/RequireAuth';
 
 const App: FC = () => {
   return (
-    <Router>
       <AuthProvider>
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -19,8 +19,8 @@ const App: FC = () => {
         <Route path="/protected" element={<Protected />} />
         </Route>
       </Routes>
-      </AuthProvider>
     </Router>
+      </AuthProvider>
   );
 };
 
