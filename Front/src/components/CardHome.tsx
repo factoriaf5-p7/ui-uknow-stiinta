@@ -1,16 +1,26 @@
 import TagDifficulty from "@/UI/TagDifficulty"
 import { getCourses } from "@/services/lib/course"
-import { useEffect } from "react"
+import { Course } from "@/types/course.type";
+import { AxiosResponse } from "axios";
+import { useEffect, useState } from "react"
+
+
 
 function CardHome() {
+    // estados
+    const [courses, setCourses] = useState<Course[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     useEffect(() => {
         // Definir una función asincrónica dentro del useEffect para poder usar 'await'
         const fetchCourses = async () => {
           try {
-            const response = await getCourses();
-            console.log(response);
+            const response: AxiosResponse = await getCourses();
+            console.log(response.data);
+            setCourses(response.data)
           } catch (error) {
             console.error('Error al obtener los cursos:', error);
+          } finally {
+            setIsLoading(false);
           }
         };
     
@@ -18,7 +28,14 @@ function CardHome() {
       }, []);
 
   return (
-    <section className="card-home w-4/5 flex-col m-auto">
+    <section>
+        {isLoading ? (
+            <div>Loading...</div>
+
+
+
+        ):(
+            <div className="card-home w-4/5 flex-col m-auto">
         <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-36 bg-cover bg-center rounded-t-xl relative">
             
             <TagDifficulty 
@@ -41,6 +58,11 @@ function CardHome() {
             </div>
         </div>
 
+    </div>
+
+        )
+    }
+    
     </section>
     )
 }

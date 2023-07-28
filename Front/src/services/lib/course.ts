@@ -1,4 +1,4 @@
-import { Course } from '@/types/course.types';
+import { CreateCourse } from '@/types/createCourse.types';
 import axiosClient  from '../apiClient';
 
 export function getCourses(){
@@ -9,7 +9,7 @@ export function getCourse(id: string){
     return axiosClient.get(`/courses/${id}`);
 }
 
-export function createCourse(course: Course){
+export function createCourse(course: CreateCourse){
     return axiosClient.post('/courses', JSON.stringify(course));
 }
 
