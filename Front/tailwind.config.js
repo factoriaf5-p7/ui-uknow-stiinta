@@ -17,13 +17,15 @@ module.exports = {
     },
     extend: {
       colors: {
+        btnClaro: 'hsla(252, 100%, 66%, 0.2);',
+        btnOscuro:'#130160',
         stars: '#FF9343',
         title: '#150A33',
         text: '#524B6B',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: "#f9f9f9",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
