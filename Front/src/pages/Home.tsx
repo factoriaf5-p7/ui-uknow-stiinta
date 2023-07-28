@@ -1,7 +1,9 @@
 import CardHome from '@/components/CardHome';
 import React from 'react';
 
-const Home: React.FC = () => {
+
+
+function Home() {
   return (
     <div>
       <h2>Bienvenido a la aplicación</h2>
@@ -10,4 +12,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Home
