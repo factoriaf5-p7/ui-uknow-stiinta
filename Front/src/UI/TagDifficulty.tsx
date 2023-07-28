@@ -17,7 +17,7 @@ function TagDifficulty({ color, children }: TagDifficultyProps) {
         Advanced: "bg-red-500",
     }
   return (
-    <div className={`${colorVariants[color]} w-fit px-4 py-2 text-white absolute top-7 left-5`}>{children}</div>
+    <div className={`${colorVariants[color]} w-fit px-1.5 py-1 text-white absolute top-4 left-4`}>{children}</div>
   )
 }
 

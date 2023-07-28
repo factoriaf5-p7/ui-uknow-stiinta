@@ -1,3 +1,4 @@
+import Average from "@/UI/Average";
 import TagDifficulty from "@/UI/TagDifficulty"
 import { getCourses } from "@/services/lib/course"
 import { Course } from "@/types/course.type";
@@ -41,10 +42,10 @@ function CardHome() {
                 color={course.difficulty as "Beginner" | "Medium" | "Advanced"}
                 children={course.difficulty}
              />
-            <div>{course.average} stars</div>
+             <Average avg={course.average} />
         </div>
         <div className="contain-section">
-            <h3>{course.name}</h3>
+            <h3 className="text-title">{course.name}</h3>
             <p>Explore all the most exciting job roles based on your interest and study major.</p>
             <div className="tags">
                 {course.tags}
