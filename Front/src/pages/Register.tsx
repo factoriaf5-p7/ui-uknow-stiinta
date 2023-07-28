@@ -19,7 +19,7 @@ const Register: React.FC = () => {
   return (
     <div>
       <h2>Register</h2>
-      <input type="text" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} />
+      <input className='bg-red-500' type="text" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} />
       <input type="text" placeholder="Apellido" value={lastName} onChange={(e) => setLastName(e.target.value)} />
       <input type="text" placeholder="Correo electrónico" value={email} onChange={(e) => setEmail(e.target.value)} />
       <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
