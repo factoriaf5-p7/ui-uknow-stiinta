@@ -32,16 +32,16 @@ function CardHome() {
     <section>
         {isLoading ? (
             <div>Loading...</div>
-        ):( 
-            <div>
+            ):( 
+          <div className="card-home flex gap-5 flex-wrap m-auton justify-center">
             {courses.map((course) => (
-                    <div key={course._id} className="card-home w-4/5 flex-col m-auto">
+              <div key={course._id} className="sm:w-full md:w-1/3 lg:w-1/4 p-4" >
                     <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-36 bg-cover bg-center rounded-t-xl relative">
             
             <TagDifficulty 
                 color={course.difficulty as "Beginner" | "Medium" | "Advanced"}
                 children={course.difficulty}
-             />
+                />
              <Average avg={course.average} />
         </div>
         <div className="contain-section">
@@ -58,7 +58,8 @@ function CardHome() {
             </div>
           </div>
         ))}
-      </div>
+        </div>
+
     )}
   </section>
     )
