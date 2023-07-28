@@ -7,6 +7,7 @@ import { Model, ObjectId } from 'mongoose';
 import { UsersService } from '../users/users.service';
 import { RatedCourseDto } from './dto/rate-course.dto';
 import { PurchaseCourseDto } from './dto/buy-course.dto';
+import { log } from 'console';
 
 @Injectable()
 export class CoursesService {
@@ -36,7 +37,20 @@ export class CoursesService {
 	async findAll() {
 		try {
 			const allCourses = await this.courseModel.find();
+			const data = await this.findAllSortedByAverage();
+			const coursesAverage = data.data;
+			// console.log(coursesAverage);
 
+			const coursesToUpdate = allCourses.filter((course) => course.bought); // Filtrar los cursos comprados
+
+			// Actualizar los cursos con el campo "average" si corresponde
+			for (const course of coursesToUpdate) {
+				const matchingCourse = coursesAverage.find((c) => c._id.toString() === course._id.toString());
+				if (matchingCourse) {
+					console.log(`Updating course ${course._id} with average ${matchingCourse.average}`);
+					await this.courseModel.updateOne({ _id: course._id }, { $set: { average: matchingCourse.average } });
+				}
+			}
 			return {
 				message: 'All courses retrieved successfully',
 				status: HttpStatus.OK,

@@ -7,6 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 import { sendEmail } from '../utils/mail-sender';
 import { RecoverRequestDto } from './dto/recover-request.dto';
 import { hash, genSalt, compare } from 'bcrypt';
+import { profile } from 'console';
 
 @Injectable()
 export class AuthService {
@@ -30,6 +31,7 @@ export class AuthService {
 		const payload = {
 			sub: findUser._id,
 			email: findUser.email
+
 		};
 		
 		const token = await this.jwtService.signAsync(payload, { expiresIn: '1d' });
@@ -38,7 +40,7 @@ export class AuthService {
 			message: 'Login success.', 
 			status: HttpStatus.OK,
 			data: token,
-			roles: [findUser.profile]
+			roles: [ findUser.profile ]
 		};
 	}
 

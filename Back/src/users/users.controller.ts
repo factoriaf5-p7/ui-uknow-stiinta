@@ -1,11 +1,12 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards, Req } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ObjectId } from 'mongoose';
 import { RegisterUserDto } from '../auth/dto/register-user.dto';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { UpdateUserByAdminDto } from './dto/update-user-byadmin.dto ';
+import { request } from 'express';
 
 @Controller('users')
 export class UsersController {
@@ -58,4 +59,11 @@ export class UsersController {
   	remove(@Param('id') id: string) {
   		return this.usersService.remove(+id);
   	}
+
+	// @UseGuards(AuthGuard)
+	// @Get('/profile')
+	// getProfile(@Req() request: Request) {
+	// 	return this.usersService.getProfile(request.user);
+
+	// }
 }

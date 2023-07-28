@@ -7,7 +7,8 @@ import { CoursesModule } from './courses/courses.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ChatModule } from './chat/chat.module';
-
+import * as dotenv from 'dotenv';
+dotenv.config();
 @Module({
 	imports: [
 		// STATIC CONNECTION VERSION
