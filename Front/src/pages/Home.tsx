@@ -1,5 +1,4 @@
 import CardHome from '@/components/CardHome';
-
 import { SearchMobile } from '@/components/SearchMobile';
 import { BottomNavigation } from '@/components/BottomNavigation';
 
