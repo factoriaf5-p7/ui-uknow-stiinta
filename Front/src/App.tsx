@@ -12,22 +12,22 @@ const App: FC = () => {
   const [showHeroImage, setShowHeroImage] = useState(true);
 
   return (
-      <AuthProvider>
-        <Routes>
-          <Route
-            path="/"
-            element={<HeroImg showHeroImage={showHeroImage} setShowHeroImage={setShowHeroImage} />}
-          />
-          <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route element={<RequireAuth allowedRoles={['user']} />}>
-            <Route path="/protected" element={<Protected />} />
-          </Route>
-        </Routes>
-      </AuthProvider>
-    </Router>
-      </AuthProvider>
+    <Router>
+    <AuthProvider>
+      <Routes>
+        <Route
+          path="/"
+          element={<HeroImg showHeroImage={showHeroImage} setShowHeroImage={setShowHeroImage} />}
+        />
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route element={<RequireAuth allowedRoles={['user']} />}>
+          <Route path="/protected" element={<Protected />} />
+        </Route>
+      </Routes>
+    </AuthProvider>
+  </Router>
   );
 };
 
