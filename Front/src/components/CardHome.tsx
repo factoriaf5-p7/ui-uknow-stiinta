@@ -1,6 +1,6 @@
-import Average from "@/UI/Average";
-import Button from "@/UI/Button";
-import TagDifficulty from "@/UI/TagDifficulty";
+import Average from "./ui/Average";
+import Button from "../components/ui/Button";
+import TagDifficulty from "../components/ui/TagDifficulty";
 import { getCourses } from "@/services/lib/course";
 import { Course } from "@/types/course.type";
 import { AxiosResponse } from "axios";
