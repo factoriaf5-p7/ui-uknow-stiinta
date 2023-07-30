@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion'; // Importa el módulo motion
+import { motion } from 'framer-motion'; 
 
 interface HeroImgProps {
   showHeroImage: boolean;
@@ -21,8 +21,8 @@ function HeroImg({ showHeroImage, setShowHeroImage }: HeroImgProps) {
       </div>
       {showHeroImage && (
         <motion.div
-          initial={{ scale: 0.8, rotate: 0, borderRadius: "0%" }} // Ajusta el valor de escala inicial
-          animate={{ scale: [0.8, 1.1, 1, 1], rotate: [0, 0, 45, 0], borderRadius: ["0%", "0%", "25%", "0%"] }} // Ajusta los valores de escala y rotación
+          initial={{ scale: 0.8, rotate: 0, borderRadius: "0%" }} 
+          animate={{ scale: [0.8, 1.1, 1, 1], rotate: [0, 0, 45, 0], borderRadius: ["0%", "0%", "25%", "0%"] }} 
           transition={{
             duration: 2,
             ease: "easeInOut",
