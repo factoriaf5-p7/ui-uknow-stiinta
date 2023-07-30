@@ -12,7 +12,6 @@ const App: FC = () => {
   const [showHeroImage, setShowHeroImage] = useState(true);
 
   return (
-    <Router>
       <AuthProvider>
         <Routes>
           <Route
@@ -28,6 +27,7 @@ const App: FC = () => {
         </Routes>
       </AuthProvider>
     </Router>
+      </AuthProvider>
   );
 };
 
