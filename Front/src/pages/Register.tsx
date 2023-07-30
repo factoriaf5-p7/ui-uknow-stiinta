@@ -16,72 +16,65 @@ const Register: React.FC = () => {
 
   const handleRegister = async () => {
     try {
-      await axios.post('http://localhost:3000/auth/signup', {
-        name,
-        last_name: lastName,
-        email,
-        password,
-      });
-      console.log('Usuario registrado exitosamente.');
+      await axios.post("http://localhost:3000/auth/signup", credentials);
+      console.log("Usuario registrado exitosamente.");
     } catch (error) {
-      console.error('Error al registrarse:', error);
+      console.error("Error al registrarse:", error);
     }
   };
 
   return (
-    <div className="bg-gray-200 min-h-screen p-8">
+    <div className="bg-gray-100 min-h-screen p-6  flex flex-col md:items-center md:justify-center">
       <h2 className="text-3xl font-bold mb-2 text-center">Create an account</h2>
-      <p className="mb-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius ipsum non elit
-        ultricies, eget malesuada sapien iaculis. Sed pharetra sit amet odio sit amet volutpat.
-        Pellentesque euismod lectus in urna cursus, eget pharetra ipsum rhoncus.
+      <p className="text-center m-3 italic hover:not-italic">
+        Uknow is a cutting-edge application designed for programming enthusiasts
+        and aspiring developers. <br /> Uknow has you covered.
       </p>
       <div className="mb-4">
-        <label className="font-bold">Name</label>
+        <label className="font-bold">Name:</label>
         <input
           className="w-full bg-white rounded-md p-2"
           type="text"
-          placeholder="Nombre"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </div>
       <div className="mb-4">
-        <label className="font-bold">Last Name</label>
+        <label className="font-bold">Last Name:</label>
         <input
-          className="w-full bg-white rounded-md p-2"
+          className="w-full bg-white rounded-md p-2 "
           type="text"
-          placeholder="Last Name"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
       </div>
       <div className="mb-4">
-        <label className="font-bold">Email</label>
+        <label className="font-bold">Email:</label>
         <input
           className="w-full bg-white rounded-md p-2"
-          type="text"
-          placeholder="carlos.saiz@gmail.com"
+          type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div className="mb-4">
-        <label className="font-bold">Password</label>
+        <label className="font-bold">Password:</label>
         <input
           className="w-full bg-white rounded-md p-2"
           type="password"
-          placeholder="******"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <p className="text-center">
-        <a href="https://example.com/forgot-password" className="text-blue-500 underline">
+      <p className="text-center p-6 ">
+        <a
+          href=""
+          className="text-blue-500 underline"
+        >
           Forgot Password?
         </a>
       </p>
-      <div className="mb-4 flex items-center">
+      <div className="mb-4 flex items-center ">
         <input type="checkbox" className="mr-2" />
         <label>Remember Me</label>
       </div>
@@ -93,7 +86,6 @@ const Register: React.FC = () => {
           SIGN UP
         </button>
       </div>
-     
     </div>
   );
 };
