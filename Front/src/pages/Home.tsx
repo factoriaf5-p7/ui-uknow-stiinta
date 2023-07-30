@@ -1,5 +1,4 @@
 import CardHome from '@/components/CardHome';
-import React from 'react';
 
 
 
@@ -10,6 +9,6 @@ function Home() {
       <CardHome />
     </div>
   );
-};
+}
 
 export default Home
