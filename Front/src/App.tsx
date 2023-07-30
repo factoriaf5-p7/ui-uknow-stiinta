@@ -10,19 +10,19 @@ import HeroImg from './pages/HeroImg';
 
 const App: FC = () => {
   return (
-    <Router>
       <AuthProvider>
+    <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/" element={<HeroImg />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<RequireAuth allowedRoles={['user']} />}>
         <Route path="/protected" element={<Protected />} />
         </Route>
       </Routes>
-      </AuthProvider>
     </Router>
+      </AuthProvider>
   );
 };
 
