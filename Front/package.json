@@ -11,6 +11,7 @@
     "test": "vitest --ui"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.4",
     "@react-icons/all-files": "^4.1.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",

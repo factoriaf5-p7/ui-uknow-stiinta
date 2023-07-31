@@ -5,6 +5,7 @@ import { getCourses } from "@/services/lib/course";
 import { Course } from "@/types/course.type";
 import { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
+import Modal from "./Modal";
 
 function CardHome() {
   // estados
@@ -33,8 +34,8 @@ function CardHome() {
         <div>Loading...</div>
       ) : (
         <div className="card-home flex gap-5 flex-wrap justify-center">
-          {courses.map((course) => (
-            <div key={course._id} className="sm:w-full md:w-1/3 lg:w-1/4 p-4">
+          {courses.map((course, index ) => (
+            <div key={index} className="sm:w-full md:w-1/3 lg:w-1/4 p-4">
               <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-36 bg-cover bg-center  rounded-t-xl relative">
                 <TagDifficulty
                   color={
@@ -51,25 +52,31 @@ function CardHome() {
                   and study major.
                 </p>
                 <div className="tags flex gap-2 mb-4 flex-wrap">
-                  {course.tags.map((tag) => (
-                    <h3 className="tag bg-gray-100 rounded-md px-1.5 py-1 text-text text-sm">
+                  {course.tags.map((tag, index) => (
+                    <h3 key={index} className="tag bg-gray-100 rounded-md px-1.5 py-1 text-text text-sm">
                       {tag}
                     </h3>
                   ))}
                 </div>
                 <div className="buttons-card flex gap-3 justify-between">
                   <div className="flex gap-3">
-                  <Button color="bg-btnClaro" text="text-text" children="Ver más" />
-                  <Button color="bg-btnOscuro" text="text-white" children="Comprar" />
+                   
+                   <Modal textButton="Ver mas" />
+
+                    <Button
+                      color="bg-btnOscuro"
+                      text="text-white"
+                      children="Comprar"
+                    />
                   </div>
-               
-                  <p className=" text-slate-400"><strong className="text-black text-lg">{course.price}</strong>/kwl</p>
-                  
-                  
-                  
-                  
+
+                  <p className=" text-slate-400">
+                    <strong className="text-black text-lg">
+                      {course.price}
+                    </strong>
+                    /kwl
+                  </p>
                 </div>
-                
               </div>
             </div>
           ))}
