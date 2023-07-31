@@ -1,5 +1,6 @@
-import { beforeEach, describe, test, screen, expect } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";import { MemoryRouter } from "react-router-dom";
+import { beforeEach, describe, test, expect } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import  Home  from "../pages/Home";
 
 
@@ -14,8 +15,8 @@ describe("CardHome", () => {
 
   test("renders a link to the 'Comprar' page", async () => {
     await waitFor(() => {
-        const comprarText = screen.getByAllText(/Comprar/i);
-        expect(comprarText).toBeInTheDocument();
+        const comprarText = screen.getAllByText(/Comprar/i);
+        expect(comprarText[0]).toBeInTheDocument();
     })
   })
 });
