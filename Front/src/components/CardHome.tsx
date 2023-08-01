@@ -1,16 +1,18 @@
 import Average from "./ui/Average";
 import Button from "../components/ui/Button";
 import TagDifficulty from "../components/ui/TagDifficulty";
-import { getCourses } from "@/services/lib/course";
+import { buyCourse, getCourses } from "@/services/lib/course";
 import { Course } from "@/types/course.type";
 import { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import { Badge } from "@/components/ui/badge"
+import { BuyCourse } from "@/types/buyCourse.types";
 
 function CardHome() {
   // estados
   const [courses, setCourses] = useState<Course[]>([]);
+  const [buyCourseObject, setBuyCourseOject] = useState<BuyCourse>({ courseId: "", userId: ""});
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
    
@@ -30,6 +32,23 @@ function CardHome() {
 
     fetchCourses(); // Llama a la función asincrónica para obtener los cursos
   }, []);
+
+    const handleBuyCourse: React.MouseEventHandler<HTMLButtonElement> = () => {
+
+      
+      const buyedCourse = async () => {
+        try {
+          const response: AxiosResponse = await buyCourse(buyCourseObject   );
+          // console.log(response.data.data);
+          setCourses(response.data.data);
+        } catch (error) {
+          console.error("Error al obtener los cursos:", error);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      buyedCourse();
+    }
 
   return (
     <section className=" bg-background">
@@ -63,7 +82,7 @@ function CardHome() {
                    
                    <Modal textButton="Ver mas" {...course} />
 
-                    <Button
+                    <Button action={handleBuyCourse}
                       color="bg-btnOscuro"
                       text="text-white"
                       children="Comprar"
