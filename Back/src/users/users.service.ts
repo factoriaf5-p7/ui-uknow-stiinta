@@ -246,8 +246,6 @@ export class UsersService {
 	}
 
 	async updateUserBoughtCourses(userId: mongoose.Types.ObjectId , course: { course_id: mongoose.Types.ObjectId, stars: number, commented: boolean, wallet: number }) {
-		console.log(course);
-		
 		const update = {
 			$set: { 
 				wallet_balance: course.wallet

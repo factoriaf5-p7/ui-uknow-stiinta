@@ -382,7 +382,7 @@ export class CoursesService {
 				const object = {
 					wallet: user.wallet_balance,
 					course_id: course.id,
-					stars: 0,
+					stars: undefined,
 					commented: false
 				};
 				await this.userService.updateUserBoughtCourses(user._id, object);

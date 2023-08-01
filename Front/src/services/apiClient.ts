@@ -16,6 +16,8 @@ axiosClient.interceptors.response.use(
         const res = error.response;
         if (res.status == 401) {
             console.log('Redirigir al home');//cambiar esto por la ruta válida del home            
+        } if (res.status == 403) {
+            console.log('No tienes pasta');//cambiar esto por ruta válida de no pasta       
         }
         console.error(`Looks like there was a problem. Status Code: ${res.status}`);
         return Promise.reject(error);
