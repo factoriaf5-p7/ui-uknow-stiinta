@@ -5,11 +5,29 @@ import { getCourses } from "@/services/lib/course";
 import { Course } from "@/types/course.type";
 import { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
+import { Input } from "./ui/input";
 
 function CardHome() {
   // estados
   const [courses, setCourses] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const [search, setSearch] = useState({
+    query: '',
+    list: []
+  })
+  
+  const handleSearch = (e) => {
+    const results = courses.filter(course => {
+      if (e.target.value === '') return courses
+      return course.name.toLowerCase().includes(e.target.value.toLowerCase())
+    })
+    setSearch({
+      query: e.target.value,
+      list: results
+    })
+  }
+  
   useEffect(() => {
     // Definir una función asincrónica dentro del useEffect para poder usar 'await'
     const fetchCourses = async () => {
@@ -24,16 +42,17 @@ function CardHome() {
       }
     };
 
-    fetchCourses(); // Llama a la función asincrónica para obtener los cursos
+    fetchCourses()
   }, []);
 
   return (
-    <section className=" bg-background">
+  <section className=" bg-background">
+      <Input  placeholder="Buscar curso" className="max-w-3xl mx-auto my-8" onChange={handleSearch}/>
       {isLoading ? (
         <div>Loading...</div>
       ) : (
         <div className="card-home flex gap-5 flex-wrap justify-center">
-          {courses.map((course) => (
+          {search.list.map((course) => (
             <div key={course._id} className="sm:w-full md:w-1/3 lg:w-1/4 p-4">
               <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-36 bg-cover bg-center  rounded-t-xl relative">
                 <TagDifficulty
