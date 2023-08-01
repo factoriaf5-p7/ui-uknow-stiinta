@@ -6,6 +6,6 @@ export interface Course {
     difficulty: string;
     tags: string[];
     bought: boolean;
-    average: number;
+    average: number | undefined;
     content: string;
 }

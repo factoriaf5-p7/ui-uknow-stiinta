@@ -48,20 +48,20 @@ function CardHome() {
                 />
                 <Average avg={course.average} />
               </div>
-              <div className="contain-section py-4 px-6 bg-white rounded-2xl flex-auto">
+              <div className="contain-section flex flex-col py-4 px-6 bg-white rounded-2xl flex-auto">
                 <h3 className="text-title font-bold mb-3">{course.name}</h3>
                 <div className="tags flex gap-2 mb-4 flex-wrap">
                   {course.tags.map((tag, index) => (
                     // <h3 key={index} className="tag bg-gray-100 rounded-2xl px-1.5 py-1 text-text text-sm">
-                      <Badge className="text-sm rounded-sm" key={index} variant="outline">{tag}</Badge>
+                      <Badge className="text-sm " key={index} variant="outline">{tag}</Badge>
                       
                     // </h3>
                   ))}
                 </div>
-                <div className="buttons-card flex gap-3 justify-between">
+                <div className="buttons-card mt-auto flex gap-3 justify-between">
                   <div className="flex gap-3">
                    
-                   <Modal textButton="Ver mas" name={course.name} content={course.content} />
+                   <Modal textButton="Ver mas" {...course} />
 
                     <Button
                       color="bg-btnOscuro"
