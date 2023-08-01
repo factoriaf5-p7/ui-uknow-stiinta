@@ -12,18 +12,7 @@ function CardHome() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-   // Obtener las 15 primeras palabras de la descripción
-   const truncateDescription = (str:string, numWords: number) => {
-    const words = str.split(' ');
-    const truncated = words.slice(0, numWords).join(' ');
-
-    if (words.length > numWords) {
-      return `${truncated}...`;
-    }
-
-    return truncated;
-  };
-
+   
   useEffect(() => {
     // Definir una función asincrónica dentro del useEffect para poder usar 'await'
     const fetchCourses = async () => {
@@ -60,9 +49,9 @@ function CardHome() {
               </div>
               <div className="contain-section py-4 px-6 bg-white rounded-xl">
                 <h3 className="text-title font-bold mb-3">{course.name}</h3>
-                <p className="text-text mb-3">
-                  {truncateDescription(course.content, 15)}
-                </p>
+                {/* <p className="text-text mb-3">
+                  {truncateDescription(content, 15)}
+                </p> */}
                 <div className="tags flex gap-2 mb-4 flex-wrap">
                   {course.tags.map((tag, index) => (
                     <h3 key={index} className="tag bg-gray-100 rounded-md px-1.5 py-1 text-text text-sm">
