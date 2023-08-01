@@ -77,42 +77,58 @@ const Register: React.FC = () => {
         <img src="advertencia.png" className="block mx-auto mt-2 max-w-24 max-h-24" alt="" />
         </p>
       )}
-      <div className="mb-4">
-        <label className="font-bold">Name:</label>
-        <input
-          className="w-full bg-white rounded-md p-2"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div className="mb-4">
-        <label className="font-bold">Last Name:</label>
-        <input
-          className="w-full bg-white rounded-md p-2 "
-          type="text"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-      </div>
-      <div className="mb-4">
-        <label className="font-bold">Email:</label>
-        <input
-          className="w-full bg-white rounded-md p-2"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div className="mb-4">
-        <label className="font-bold">Password:</label>
-        <input
-          className="w-full bg-white rounded-md p-2"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
+      <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <b>Name</b>
+              </label>
+              <input 
+                id="name"
+                name="name"
+                type="name"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+             <div>
+              <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+                <b>Last Name</b>
+              </label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </div> 
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <b>Email</b>
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <b>Password</b>
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
       <p className="text-center p-6 ">
         <a href="" className="text-blue-500 underline">
           Forgot Password?
@@ -127,10 +143,11 @@ const Register: React.FC = () => {
           className="w-full bg-blue-900 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
           onClick={handleRegister}
         >
-          SIGN UP
+          Sign up
         </button>
+        <p className="p-6">You don't have an account yet? <span className="text-orange-500 underline p-1">Sign in</span></p>
       </div>
-    </div>
+    </div> 
   );
 };
 
