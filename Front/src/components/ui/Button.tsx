@@ -6,7 +6,7 @@ interface ButtonProps {
 
 function Button ({children, color, text}: ButtonProps ): JSX.Element {
   return (
-    <button className={`${color} ${text} py-1 px-3 text-sm rounded-md hover:font-bold`}>{children}</button>
+    <button className={`${color} ${text} py-0.5 px-1 text-sm rounded-md hover:font-bold`}>{children}</button>
   )
 }
 

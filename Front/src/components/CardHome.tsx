@@ -6,6 +6,7 @@ import { Course } from "@/types/course.type";
 import { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
+import { Badge } from "@/components/ui/badge"
 
 function CardHome() {
   // estados
@@ -35,10 +36,10 @@ function CardHome() {
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <div className="card-home flex  flex-wrap justify-center max-w-screen-xl mx-auto ">
+        <div className="card-home flex gap-y-7 flex-wrap justify-center max-w-screen-2xl mx-auto  ">
           {courses.map((course, index ) => (
-            <div key={index} className="sm:w-min-[95vw] md:w-1/3 lg:w-1/4 p-4 flex flex-col">
-              <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-36 bg-cover bg-center  rounded-t-xl relative">
+            <div key={index} className="rounded-2xl w-full sm:w-min-[80vw] md:w-1/3 lg:w-1/5 flex flex-col card-content-container transition-shadow transform hover:shadow-md hover:scale-105 hover:transition-all duration-300 ease-in-out mx-5">
+              <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-40 bg-cover bg-center  rounded-t-xl relative flex-none">
                 <TagDifficulty
                   color={
                     course.difficulty as "Beginner" | "Medium" | "Advanced"
@@ -47,13 +48,14 @@ function CardHome() {
                 />
                 <Average avg={course.average} />
               </div>
-              <div className="contain-section py-4 px-6 bg-white rounded-2xl">
+              <div className="contain-section py-4 px-6 bg-white rounded-2xl flex-auto">
                 <h3 className="text-title font-bold mb-3">{course.name}</h3>
                 <div className="tags flex gap-2 mb-4 flex-wrap">
                   {course.tags.map((tag, index) => (
-                    <h3 key={index} className="tag bg-gray-100 rounded-2xl px-1.5 py-1 text-text text-sm">
-                      {tag}
-                    </h3>
+                    // <h3 key={index} className="tag bg-gray-100 rounded-2xl px-1.5 py-1 text-text text-sm">
+                      <Badge className="text-sm rounded-sm" key={index} variant="outline">{tag}</Badge>
+                      
+                    // </h3>
                   ))}
                 </div>
                 <div className="buttons-card flex gap-3 justify-between">
