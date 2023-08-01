@@ -35,9 +35,9 @@ function CardHome() {
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <div className="card-home flex gap-5 flex-wrap justify-center">
+        <div className="card-home flex  flex-wrap justify-center max-w-screen-xl mx-auto ">
           {courses.map((course, index ) => (
-            <div key={index} className="sm:w-full md:w-1/3 lg:w-1/4 p-4">
+            <div key={index} className="sm:w-min-[95vw] md:w-1/3 lg:w-1/4 p-4 flex flex-col">
               <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-36 bg-cover bg-center  rounded-t-xl relative">
                 <TagDifficulty
                   color={
@@ -47,14 +47,11 @@ function CardHome() {
                 />
                 <Average avg={course.average} />
               </div>
-              <div className="contain-section py-4 px-6 bg-white rounded-xl">
+              <div className="contain-section py-4 px-6 bg-white rounded-2xl">
                 <h3 className="text-title font-bold mb-3">{course.name}</h3>
-                {/* <p className="text-text mb-3">
-                  {truncateDescription(content, 15)}
-                </p> */}
                 <div className="tags flex gap-2 mb-4 flex-wrap">
                   {course.tags.map((tag, index) => (
-                    <h3 key={index} className="tag bg-gray-100 rounded-md px-1.5 py-1 text-text text-sm">
+                    <h3 key={index} className="tag bg-gray-100 rounded-2xl px-1.5 py-1 text-text text-sm">
                       {tag}
                     </h3>
                   ))}
