@@ -114,6 +114,7 @@ Uknow has you covered.</p>
             >
               Log In
             </button>
+            <p className="p-6">You don't have an account yet? <span className="text-orange-500 underline p-1">Sign in</span></p>
           </div>
         </form>
       </div>
