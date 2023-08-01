@@ -364,6 +364,7 @@ export class CoursesService {
 	async purchaseCourse(purchaseCourseDto: PurchaseCourseDto) {
 		try{
 			const user = (await this.userService.findOne(purchaseCourseDto.userId)).data;
+			
 			const course = await this.courseModel.findOne({ _id: purchaseCourseDto.courseId });
 			
 			if (user.wallet_balance < course.price) {
@@ -374,9 +375,12 @@ export class CoursesService {
 						{ _id: course._id },
 						{ bought: true },
 					);
+					
 				}
 				user.wallet_balance -= course.price;
+				log(user.wallet_balance);
 				const object = {
+					wallet: user.wallet_balance,
 					course_id: course.id,
 					stars: 0,
 					commented: false
@@ -386,7 +390,7 @@ export class CoursesService {
 				return {
 					message: 'Course purchased.',
 					status: HttpStatus.OK,
-					data: ''
+					data: object
 				};
 			}
 

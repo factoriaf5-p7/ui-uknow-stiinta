@@ -9,6 +9,7 @@ import { RecoverRequestDto } from 'src/auth/dto/recover-request.dto';
 import { Course } from '../courses/schemas/course.schema';
 import { RatedCourseDto } from '../courses/dto/rate-course.dto';
 import { NotFoundError } from 'rxjs';
+import { AnyCnameRecord } from 'dns';
 
 @Injectable()
 export class UsersService {
@@ -244,17 +245,22 @@ export class UsersService {
 		return `This action removes a #${id} user`;
 	}
 
-	async updateUserBoughtCourses(userId: mongoose.Types.ObjectId , course: any) {
+	async updateUserBoughtCourses(userId: mongoose.Types.ObjectId , course: { course_id: mongoose.Types.ObjectId, stars: number, commented: boolean, wallet: number }) {
+		console.log(course);
+		
 		const update = {
+			$set: { 
+				wallet_balance: course.wallet
+			},
 			$push: {
 			  bought_courses: {
-					course_id: course.id,
-					stars: 0,
-					commented: false,
+					course_id: course.course_id,
+					stars: course.stars,
+					commented: course.commented,
 			  },
 			},
 		  };
 
-		  return this.userModel.findOneAndUpdate(userId, update);
+		  return this.userModel.findOneAndUpdate(userId, update );
 	}
 }
