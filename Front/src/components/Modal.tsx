@@ -54,12 +54,12 @@ function Modal({ textButton, name, content, difficulty, average, price }: ModalP
               {truncateDescription(courseContent, 15)}
             </ScrollArea>
           </DialogDescription>
-          <p className=" text-slate-400">
+          <h5 className=" text-slate-400">
                     <strong className="text-black text-lg">
                       {price}
                     </strong>
                     /kwl
-                  </p>
+                  </h5>
           
           <Button color="bg-btnOscuro" text="text-white" children="Comprar" />
         </DialogHeader>

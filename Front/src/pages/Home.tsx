@@ -7,7 +7,6 @@ function Home() {
   return (
     <div>
       <SearchMobile />
-      <h2>Bienvenido a la aplicación</h2>
       <CardHome />
       <BottomNavigation />
     </div>

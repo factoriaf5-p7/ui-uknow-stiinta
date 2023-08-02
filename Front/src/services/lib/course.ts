@@ -1,4 +1,5 @@
 import { CreateCourse } from '@/types/createCourse.types';
+import { BuyCourse } from '@/types/buyCourse.types';
 import axiosClient  from '../apiClient';
 
 export function getCourses(){
@@ -12,4 +13,12 @@ export function getCourse(id: string){
 export function createCourse(course: CreateCourse){
     return axiosClient.post('/courses', JSON.stringify(course));
 }
+
+export function buyCourse(buyCourse: BuyCourse) {
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+  
+    return axiosClient.patch('courses/purchase', buyCourse, { headers });
+  }
 

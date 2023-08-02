@@ -1,5 +1,4 @@
 import Average from "./ui/Average";
-import Button from "../components/ui/Button";
 import TagDifficulty from "../components/ui/TagDifficulty";
 import { getCourses } from "@/services/lib/course";
 import { Course } from "@/types/course.type";
@@ -7,6 +6,8 @@ import { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import { Badge } from "@/components/ui/badge"
+import Alert from "./ui/Alert";
+
 
 function CardHome() {
   // estados
@@ -31,9 +32,12 @@ function CardHome() {
     fetchCourses(); // Llama a la función asincrónica para obtener los cursos
   }, []);
 
+  
+
+
   return (
     <section className=" bg-background">
-      {isLoading ? (
+                 {isLoading ? (
         <div>Loading...</div>
       ) : (
         <div className="card-home flex gap-y-7 flex-wrap justify-center max-w-screen-2xl mx-auto  ">
@@ -63,11 +67,7 @@ function CardHome() {
                    
                    <Modal textButton="Ver mas" {...course} />
 
-                    <Button
-                      color="bg-btnOscuro"
-                      text="text-white"
-                      children="Comprar"
-                    />
+                   <Alert textButton="Comprar" {...course} />
                   </div>
 
                   <p className=" text-slate-400">
@@ -82,6 +82,7 @@ function CardHome() {
           ))}
         </div>
       )}
+
     </section>
   );
 }
