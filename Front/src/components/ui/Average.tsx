@@ -1,6 +1,6 @@
 import { AiTwotoneStar } from 'react-icons/ai';
 interface AverageProps {
-    avg: number;
+    avg: number | undefined;
   }
   
   function Average({ avg }: AverageProps): JSX.Element {

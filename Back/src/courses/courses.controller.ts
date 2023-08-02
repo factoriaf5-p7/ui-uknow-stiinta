@@ -65,7 +65,7 @@ export class CoursesController {
   }
 
   @Patch('purchase')
-  //@UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   purchaseCourse(@Body() purchaseCourseDto: PurchaseCourseDto) {
   	return this.coursesService.purchaseCourse(purchaseCourseDto);
   }

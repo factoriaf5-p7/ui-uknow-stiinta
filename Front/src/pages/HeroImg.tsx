@@ -31,11 +31,9 @@ function HeroImg({ showHeroImage, setShowHeroImage }: HeroImgProps) {
   }, [showDelayedButton]);
 
   return (
-    <div className="flex flex-col lg:flex-row items-center bg-gray-100">
+    <div className="flex flex-col lg:flex-row items-center bg-background h-screen">
       <div className="p-6 lg:self-start">
-        <h1 className="text-xl font-medium text-right text-sky-900 italic hover:not-italic">
-          Uknow
-        </h1>
+        <img  className='m-auto' src="logo.svg" alt="logo" />
       </div>
       {showHeroImage && (
         <motion.div
@@ -47,14 +45,11 @@ function HeroImg({ showHeroImage, setShowHeroImage }: HeroImgProps) {
           }}
           transition={{
             duration: 2,
-            ease: "easeInOut",
-            times: [0, 0.4, 0.7, 1],
-            repeat: Infinity,
-            repeatDelay: 1,
+            ease: "easeOut",
           }}
-          className="p-6 lg:w-1/2"
+          className="p-6 lg:w-1/2 h-full"
         >
-          <img src="hero.png" alt="" onLoad={handleImageLoad} />
+          <img src="hero.png" className="h-full flex justify-center " alt="" onLoad={handleImageLoad} />
         </motion.div>
       )}
       {showButton && (
@@ -62,23 +57,23 @@ function HeroImg({ showHeroImage, setShowHeroImage }: HeroImgProps) {
           initial={{ opacity: 0 }} 
           animate={{ opacity: 1 }} 
           transition={{ duration: 1, ease: "easeInOut" }} 
-          className="p-6 lg:w-1/2"
+          className="p-6 lg:w-1/2 "
         >
           <h1 className="text-3xl mt-5 font-medium text-center lg:text-right">
             Choose your <br />
-            <span className="text-orange-500 italic hover:not-italic ">
+            <span className="text-orange-500 ">
               Learning{" "}
             </span>
             path
           </h1>
-          <h6 className="mt-4 text-center lg:text-right ">
+          <h6 className="mt-4 text-center lg:text-right text-hero ">
             Explore all the most exciting job roles based <br /> on your
             interest and study major.
           </h6>
-          <div className="lg:flex lg:justify-end mt-4">
-            <button onClick={handleButtonClick}>
-              <img className="p-6 animate-pulse" src="button.png" alt="" />
-            </button>
+          <div className="lg:flex lg:justify-end mt-4 flex justify-end ">
+            <button onClick={handleButtonClick} className="  animate-pulse bg-btnOscuro hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            Continue →
+             </button>
           </div>
         </motion.div>
       )}
