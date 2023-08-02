@@ -2,7 +2,7 @@ interface ButtonProps {
     children: React.ReactNode;
     color: string;
     text: string;
-    action: React.MouseEventHandler<HTMLButtonElement> | undefined
+    action?: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 
 function Button ({children, color, text, action}: ButtonProps ): JSX.Element {

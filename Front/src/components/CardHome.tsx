@@ -12,7 +12,7 @@ import { BuyCourse } from "@/types/buyCourse.types";
 function CardHome() {
   // estados
   const [courses, setCourses] = useState<Course[]>([]);
-  const [buyCourseObject, setBuyCourseOject] = useState<BuyCourse>({ courseId: "", userId: ""});
+  const [buyCourseObject, setBuyCourseOject] = useState<BuyCourse>({ userId: "", courseId: "" });
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
    
@@ -33,22 +33,24 @@ function CardHome() {
     fetchCourses(); // Llama a la función asincrónica para obtener los cursos
   }, []);
 
-    const handleBuyCourse: React.MouseEventHandler<HTMLButtonElement> = () => {
-
-      
-      const buyedCourse = async () => {
-        try {
-          const response: AxiosResponse = await buyCourse(buyCourseObject   );
-          // console.log(response.data.data);
-          setCourses(response.data.data);
-        } catch (error) {
-          console.error("Error al obtener los cursos:", error);
-        } finally {
-          setIsLoading(false);
-        }
+  const handleBuyCourse = async () => {
+    try {
+      const buyCourseObject: BuyCourse = {
+        userId: localStorage.getItem("userId") || "",
+        courseId: "64bfb2fd66c0b614f22e3c77",
       };
-      buyedCourse();
+  
+      const response: AxiosResponse = await buyCourse(buyCourseObject);
+      console.log(response.data.data);
+      setBuyCourseOject(buyCourseObject); // Mover esta línea aquí
+    } catch (error) {
+      console.error("Error al comprar el curso:", error);
+    } finally {
+      setIsLoading(false);
     }
+  };
+
+
 
   return (
     <section className=" bg-background">

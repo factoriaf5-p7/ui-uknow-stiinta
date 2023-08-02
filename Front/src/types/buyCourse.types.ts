@@ -1,4 +1,4 @@
 export interface BuyCourse {
-    courseId: string;
     userId: string;
-}
+    courseId: string;
+  }

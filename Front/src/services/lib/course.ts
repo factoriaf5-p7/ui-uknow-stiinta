@@ -14,7 +14,11 @@ export function createCourse(course: CreateCourse){
     return axiosClient.post('/courses', JSON.stringify(course));
 }
 
-export function buyCourse(buyCourse: BuyCourse){
-    return axiosClient.put('courses/purchase', JSON.stringify(buyCourse));
-}
+export function buyCourse(buyCourse: BuyCourse) {
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+  
+    return axiosClient.patch('courses/purchase', buyCourse, { headers });
+  }
 
