@@ -7,6 +7,7 @@ import Protected from './pages/Protected';
 import { AuthProvider } from './context/AuthProvider';
 import RequireAuth from './components/RequireAuth';
 import HeroImg from './pages/HeroImg';
+import UserDashboard from './pages/UserDashboard';
 
 const App: FC = () => {
   const [showHeroImage, setShowHeroImage] = useState(true);
@@ -22,6 +23,7 @@ const App: FC = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path = "user" element= {<UserDashboard/>} />
           <Route element={<RequireAuth allowedRoles={['user']} />}>
             <Route path="/protected" element={<Protected />} />
           </Route>

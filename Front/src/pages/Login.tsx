@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import jwtDecode from 'jwt-decode';
-import useAuth from '../hooks/useAuth';
+//import useAuth from '../hooks/useAuth';
 import {  useNavigate, useLocation } from 'react-router-dom';
 import Button from '@/components/ui/Button';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setAuth } = useAuth();
+ // const { setAuth } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/user";
 
   const [error, setError] = useState('');
 
@@ -40,10 +39,9 @@ const Login: React.FC = () => {
 
       const response = await axios.post('http://localhost:3000/auth/login', credentials);
       const token = response.data.data;
-      const decodedToken: unknown = jwtDecode(token);
-      setAuth(response.data);
+     localStorage.setItem("token",token)
+     // setAuth(response.data);
       navigate(from, { replace: true });
-      console.log(decodedToken, response.data, useAuth);
     } catch (error) {
       setError("Error in sign in, verify your credentials.");
     }
