@@ -7,11 +7,8 @@ import Protected from './pages/Protected';
 import { AuthProvider } from './context/AuthProvider';
 import RequireAuth from './components/RequireAuth';
 import HeroImg from './pages/HeroImg';
-<<<<<<< HEAD
 import UserDashboard from './pages/UserDashboard';
-=======
 import Layout from '@/components/Layout'
->>>>>>> 32483dd48ff5f59144ac7e039c8d63cc09aa7971
 
 const App: FC = () => {
   const [showHeroImage, setShowHeroImage] = useState(true);
