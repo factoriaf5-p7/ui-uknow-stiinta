@@ -158,7 +158,7 @@ const Register: React.FC = () => {
             </div>
           </div>
           <div className='flex w-full '>
-         <Button color="bg-btnOscuro" text="text-white" >
+         <Button action={handleRegister} color="bg-btnOscuro" text="text-white" >
         Sign Up
       </Button>
       </div>
