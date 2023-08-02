@@ -7,27 +7,30 @@ import Protected from './pages/Protected';
 import { AuthProvider } from './context/AuthProvider';
 import RequireAuth from './components/RequireAuth';
 import HeroImg from './pages/HeroImg';
+import Layout from '@/components/Layout'
 
 const App: FC = () => {
   const [showHeroImage, setShowHeroImage] = useState(true);
 
   return (
-    <Router>
-      <AuthProvider>
+    <AuthProvider>
+      <Router>
         <Routes>
           <Route
             path="/"
             element={<HeroImg showHeroImage={showHeroImage} setShowHeroImage={setShowHeroImage} />}
           />
-          <Route path="/home" element={<Home />} />
+          <Route element={<Layout />}>
+            <Route path="/home" element={<Home />} />
+          </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route element={<RequireAuth allowedRoles={['user']} />}>
             <Route path="/protected" element={<Protected />} />
           </Route>
         </Routes>
-      </AuthProvider>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 };
 

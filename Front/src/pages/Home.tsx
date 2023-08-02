@@ -5,10 +5,8 @@ import { BottomNavigation } from '@/components/BottomNavigation';
 
 function Home() {
   return (
-    <div>
-      <SearchMobile />
+    <div className='md:mt-32'>
       <CardHome />
-      <BottomNavigation />
     </div>
   );
 }

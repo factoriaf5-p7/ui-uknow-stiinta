@@ -10,6 +10,7 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.response.use(
     function(response) {
+        console.log(response)
         return response;
     },
     function(error) {
