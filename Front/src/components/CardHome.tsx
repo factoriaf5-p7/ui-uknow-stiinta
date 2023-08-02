@@ -70,12 +70,12 @@ function CardHome() {
                    <Alert textButton="Comprar" {...course} />
                   </div>
 
-                  <p className=" text-slate-400">
+                  <h5 className=" text-slate-400">
                     <strong className="text-black text-lg">
                       {course.price}
                     </strong>
                     /kwl
-                  </p>
+                  </h5>
                 </div>
               </div>
             </div>
