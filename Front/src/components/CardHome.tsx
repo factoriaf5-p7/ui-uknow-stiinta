@@ -8,11 +8,12 @@ import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import { Badge } from "@/components/ui/badge"
 import { BuyCourse } from "@/types/buyCourse.types";
+import Alert from "./ui/Alert";
+
 
 function CardHome() {
   // estados
   const [courses, setCourses] = useState<Course[]>([]);
-  const [buyCourseObject, setBuyCourseOject] = useState<BuyCourse>({ userId: "", courseId: "" });
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
    
@@ -33,28 +34,12 @@ function CardHome() {
     fetchCourses(); // Llama a la función asincrónica para obtener los cursos
   }, []);
 
-  const handleBuyCourse = async () => {
-    try {
-      const buyCourseObject: BuyCourse = {
-        userId: localStorage.getItem("userId") || "",
-        courseId: "64bfb2fd66c0b614f22e3c77",
-      };
   
-      const response: AxiosResponse = await buyCourse(buyCourseObject);
-      console.log(response.data.data);
-      setBuyCourseOject(buyCourseObject); // Mover esta línea aquí
-    } catch (error) {
-      console.error("Error al comprar el curso:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
 
 
   return (
     <section className=" bg-background">
-      {isLoading ? (
+                 {isLoading ? (
         <div>Loading...</div>
       ) : (
         <div className="card-home flex gap-y-7 flex-wrap justify-center max-w-screen-2xl mx-auto  ">
@@ -84,11 +69,7 @@ function CardHome() {
                    
                    <Modal textButton="Ver mas" {...course} />
 
-                    <Button action={handleBuyCourse}
-                      color="bg-btnOscuro"
-                      text="text-white"
-                      children="Comprar"
-                    />
+                   <Alert textButton="Comprar" {...course} />
                   </div>
 
                   <p className=" text-slate-400">
@@ -103,6 +84,7 @@ function CardHome() {
           ))}
         </div>
       )}
+
     </section>
   );
 }
