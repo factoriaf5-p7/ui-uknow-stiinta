@@ -47,7 +47,7 @@ function CardHome() {
         setIsLoading(false);
       }
     };
-
+   
     fetchCourses()
   }, []);
 
@@ -64,7 +64,7 @@ function CardHome() {
         </div>
       ) : (
         <div className="card-home flex gap-y-7 flex-wrap justify-center max-w-screen-2xl mx-auto  ">
-          {search.list.map((course, index ) => (
+          {search?.list.map((course, index ) => (
             <div key={index} className="rounded-2xl w-full sm:w-min-[80vw] md:w-1/3 lg:w-1/5 flex flex-col card-content-container transition-shadow transform hover:shadow-md hover:scale-105 hover:transition-all duration-300 ease-in-out mx-5">
               <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-40 bg-cover bg-center  rounded-t-xl relative flex-none">
                 <TagDifficulty
