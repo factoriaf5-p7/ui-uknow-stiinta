@@ -3,6 +3,9 @@ import TagDifficulty from "../components/ui/TagDifficulty";
 import { getCourses } from "@/services/lib/course";
 import { Course } from "@/types/course.type";
 import { AxiosResponse } from "axios";
+import { Input } from "./ui/input";
+import { Skeleton } from "@/components/ui/skeleton"
+
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import { Badge } from "@/components/ui/badge"
@@ -14,6 +17,22 @@ function CardHome() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const [search, setSearch] = useState({
+    query: '',
+    list: []
+  })
+  
+  const handleSearch = (e) => {
+    const results = courses.filter(course => {
+      if (e.target.value === '') return courses
+      return course.name.toLowerCase().includes(e.target.value.toLowerCase())
+    })
+    setSearch({
+      query: e.target.value,
+      list: results
+    })
+  }
+  
    
   useEffect(() => {
     // Definir una función asincrónica dentro del useEffect para poder usar 'await'
@@ -29,19 +48,23 @@ function CardHome() {
       }
     };
 
-    fetchCourses(); // Llama a la función asincrónica para obtener los cursos
+    fetchCourses()
   }, []);
 
   
 
 
   return (
-    <section className=" bg-background">
-                 {isLoading ? (
-        <div>Loading...</div>
+  <section className=" bg-background">
+    <div className="bg-[url('/header-bg.svg')] bg-no-repeat bg-cover md:bg-none px-4 py-6 rounded-bl-3xl rounded-br-3xl mb-9 ">
+      <Input  placeholder="Buscar curso" className="max-w-3xl mx-auto my-8" onChange={handleSearch}/>
+      </div>
+      {isLoading ? (
+        <div>Loading...
+        </div>
       ) : (
         <div className="card-home flex gap-y-7 flex-wrap justify-center max-w-screen-2xl mx-auto  ">
-          {courses.map((course, index ) => (
+          {search.list.map((course, index ) => (
             <div key={index} className="rounded-2xl w-full sm:w-min-[80vw] md:w-1/3 lg:w-1/5 flex flex-col card-content-container transition-shadow transform hover:shadow-md hover:scale-105 hover:transition-all duration-300 ease-in-out mx-5">
               <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-40 bg-cover bg-center  rounded-t-xl relative flex-none">
                 <TagDifficulty
@@ -79,6 +102,7 @@ function CardHome() {
                 </div>
               </div>
             </div>
+
           ))}
         </div>
       )}
