@@ -5,7 +5,7 @@ import { BottomNavigation } from '@/components/BottomNavigation';
 
 function Home() {
   return (
-    <div>
+    <div className='mt-32'>
       <CardHome />
     </div>
   );

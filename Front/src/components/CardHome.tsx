@@ -4,8 +4,10 @@ import TagDifficulty from "../components/ui/TagDifficulty";
 import { getCourses } from "@/services/lib/course";
 import { Course } from "@/types/course.type";
 import { AxiosResponse } from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { Input } from "./ui/input";
+import { Skeleton } from "@/components/ui/skeleton"
+
 
 function CardHome() {
   // estados
@@ -49,7 +51,8 @@ function CardHome() {
   <section className=" bg-background">
       <Input  placeholder="Buscar curso" className="max-w-3xl mx-auto my-8" onChange={handleSearch}/>
       {isLoading ? (
-        <div>Loading...</div>
+        <div>Loading...
+        </div>
       ) : (
         <div className="card-home flex gap-5 flex-wrap justify-center">
           {search.list.map((course) => (
@@ -91,6 +94,7 @@ function CardHome() {
                 
               </div>
             </div>
+
           ))}
         </div>
       )}
