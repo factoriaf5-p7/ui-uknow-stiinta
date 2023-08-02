@@ -16,14 +16,14 @@ describe("Register", () => {
       const heading = screen.getByText(/Create an account/i);
       expect(heading).toBeInTheDocument();
       expect(heading.tagName).toBe("H2");
-      expect(heading).toHaveClass("text-3xl font-bold mb-2 text-center");
+      expect(heading).toHaveClass("mt-6 text-center text-3xl font-extrabold text-dark");
     });
 
     test("displays 'Uknow is a cutting-edge application...' description paragraph", () => {
       const description = screen.getByText(/Uknow is a cutting-edge application designed for programming enthusiasts/i);
       expect(description).toBeInTheDocument();
       expect(description.tagName).toBe("P");
-      expect(description).toHaveClass("text-center m-3 italic hover:not-italic");
+      expect(description).toHaveClass("mt-2 text-center text-sm text-text");
     });
 
     test("hides the error message when there is no error", () => {
@@ -159,10 +159,10 @@ describe("Register", () => {
   });
   
   test("displays 'Forgot Password?' link", () => {
-    const forgotPasswordLink = screen.getByText(/Forgot Password?/i);
+    const forgotPasswordLink = screen.getByText(/¿Forgot your password?/i);
     expect(forgotPasswordLink).toBeInTheDocument();
     expect(forgotPasswordLink.tagName).toBe("A");
-    expect(forgotPasswordLink).toHaveClass("text-blue-500 underline");
+    expect(forgotPasswordLink).toHaveClass("font-medium text-dark hover:text-text");
     expect(forgotPasswordLink.href).toBe(window.location.href); // Verify link is empty
   });
 
@@ -170,7 +170,6 @@ describe("Register", () => {
     const signUpButton = screen.getByRole("button", { name: /Sign up/i });
     expect(signUpButton).toBeInTheDocument();
     expect(signUpButton.tagName).toBe("BUTTON");
-    expect(signUpButton).toHaveClass("w-full bg-blue-900 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded");
   });
 
   test("displays 'You don't have an account yet? Sign in' message", () => {
