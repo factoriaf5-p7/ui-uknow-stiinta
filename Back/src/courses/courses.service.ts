@@ -37,6 +37,7 @@ export class CoursesService {
 	async findAll() {
 		try {
 			const allCourses = await this.courseModel.find();
+
 			const data = await this.findAllSortedByAverage();
 			const coursesAverage = data.data;
 			// console.log(coursesAverage);
@@ -172,10 +173,18 @@ export class CoursesService {
 
 		filteredCourses.map((course) => {
 			if (course.numRating > 0) {
-				course.average = course.totalStars / course.numRating;
-				return Number(course.average.toFixed(2));
+			  // Verificar que totalStars sea un número válido
+			  if (!Number.isNaN(course.totalStars)) {
+					course.average = course.totalStars / course.numRating;
+					course.average = Number(course.average.toFixed(2));
+			  } else {
+				// Si totalStars no es un número válido, establecer average en 0 o algún otro valor predeterminado
+					course.average = 0;
+			  }
+			} else {
+			  course.average = 0;
 			}
-		});
+		  });
 
 		const sortedCourses = filteredCourses.sort((a, b) => b.average - a.average);
 
