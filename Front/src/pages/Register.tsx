@@ -17,13 +17,13 @@ const Register: React.FC = () => {
 
   const validateForm = () => {
     if (!name || !lastName || !email || !password) {
-      setErrorMessage("Por favor rellene todos los campos");
+      setErrorMessage("All fields are required.");
       return false;
     }
     const nameRegex = /^[A-Z][a-zA-Z]*$/;
     if (!nameRegex.test(name)) {
       setErrorMessage(
-        "El nombre debe comenzar con mayúscula y solo puede contener letras"
+        "The name must start with a capital letter and can only contain letters"
       );
       return false;
     }
@@ -31,19 +31,19 @@ const Register: React.FC = () => {
     const lastNameRegex = /^[A-Z][a-zA-Z]*$/;
     if (!lastNameRegex.test(lastName)) {
       setErrorMessage(
-        "El apellido debe comenzar con mayúscula y solo puede contener letras"
+        "Last name must start with a capital letter and can only contain letters"
       );
       return false;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setErrorMessage("Por favor inserte una direccion de correo valida.");
+      setErrorMessage("Email is not valid.");
       return false;
     }
 
     if (password.length < 8) {
-      setErrorMessage("Contraseña debe contener al menos 8 caracteres");
+      setErrorMessage("Password must be at least 8 characters.");
       return false;
     }
 
