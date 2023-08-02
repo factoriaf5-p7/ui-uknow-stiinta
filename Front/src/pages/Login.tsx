@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-//import useAuth from '../hooks/useAuth';
+import React, { useState, useEffect } from 'react';
+import axiosClient from '@/services/apiClient';
+import useAuth from '../hooks/useAuth';
 import {  useNavigate, useLocation } from 'react-router-dom';
 import Button from '@/components/ui/Button';
+import axios from 'axios';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
- // const { setAuth } = useAuth();
+  const  { setAuth, persist, setPersist }  = useAuth()
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/user";
+  const from = location.state?.from?.pathname ||"/";
 
   const [error, setError] = useState('');
 
@@ -22,6 +23,14 @@ const Login: React.FC = () => {
 
   const handleLogin = async () => {
     try {
+      const response = await axios.post('/auth/login', { email, password }, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true
+    });
+      const token = response.data.data;
+      setAuth(token)
+      // setPersist(true)
+      // localStorage.setItem('token',response.data.data)
       // Validar los campos antes de enviar el formulario
       if (!email || !password) {
         setError("All fields are required.");
@@ -37,28 +46,32 @@ const Login: React.FC = () => {
         return false;}
       setError(""); // Limpiar el mensaje de error si los campos son válidos
 
-      const response = await axios.post('http://localhost:3000/auth/login', credentials);
-      const token = response.data.data;
-     localStorage.setItem("token",token)
-     // setAuth(response.data);
-      navigate(from, { replace: true });
+      // const response = await axios.post('http://localhost:3000/auth/login', credentials);
+      // const token = response.data.data;
+      // const decodedToken: unknown = jwtDecode(token);
+      // setAuth(response.data);
+      // navigate(from, { replace: true });
+      console.log(response.data);
     } catch (error) {
       setError("Error in sign in, verify your credentials.");
     }
   };
+  useEffect(() => {
+    localStorage.setItem('persist', true)
+  }, [persist])
 
   return (
     <div className="bg-background min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-      <img className='m-auto' src="logo.svg" alt="logo:Uknow" />
+        <img className='m-auto' src="logo.svg" alt="logo:Uknow" />
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-dark">Welcome back</h2>
           <p className="mt-2 text-center text-sm text-text ">Uknow is a cutting-edge application designed for programming enthusiasts and aspiring developers.
-Uknow has you covered.</p>
+            Uknow has you covered.</p>
           {error && <p className="mt-2 text-center text-red-500">{error}
-          <img src="advertencia.png" className="block mx-auto mt-2 max-w-24 max-h-24" alt="imagen de advertencia" /></p>}
+            <img src="advertencia.png" className="block mx-auto mt-2 max-w-24 max-h-24" alt="imagen de advertencia" /></p>}
         </div>
-        <form className="mt-8 space-y-6" onSubmit={(e) => e.preventDefault()}>
+        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
           <div className="rounded-md shadow-sm space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-dark">
@@ -102,19 +115,19 @@ Uknow has you covered.</p>
             </div>
 
             <div className="text-sm">
-              <a href="#" className="font-medium text-dark hover:text-text">
+              <a href="" className="font-medium text-dark hover:text-text">
                 ¿Forgot your password?
               </a>
             </div>
           </div>
 
-        <div className='flex w-full '>
-         <Button action={handleLogin} color="bg-btnOscuro" text="text-white">
-        Login
-      </Button>
-      </div>
- 
-     <p className="p-6 text-text">You don't have an account yet? <span className="text-orange-500 hover:underline p-1 cursor-pointer">Sign in</span></p>
+          <div className='flex w-full '>
+            <Button color="bg-btnOscuro" text="text-white">
+              Login
+            </Button>
+          </div>
+
+          <p className="p-6 text-text">You don't have an account yet? <span className="text-orange-500 hover:underline p-1 cursor-pointer">Sign in</span></p>
 
         </form>
       </div>

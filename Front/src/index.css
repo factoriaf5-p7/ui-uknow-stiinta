@@ -75,4 +75,8 @@
   body {
     @apply bg-background text-foreground;
   }
+  .nav-bar--hidden {
+    transform: translateY(-100%);
+  background-color: black;
+}   
 }

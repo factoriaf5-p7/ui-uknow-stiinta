@@ -5,11 +5,8 @@ import { BottomNavigation } from '@/components/BottomNavigation';
 
 function Home() {
   return (
-    <div>
-      <SearchMobile />
-      <h2>Bienvenido a la aplicación</h2>
+    <div className='md:mt-32'>
       <CardHome />
-      <BottomNavigation />
     </div>
   );
 }
