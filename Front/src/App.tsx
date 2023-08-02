@@ -12,10 +12,8 @@ import UserDashboard from './pages/UserDashboard';
 =======
 <<<<<<< HEAD
 import UserDashboard from './pages/UserDashboard';
-=======
 import Layout from '@/components/Layout'
 >>>>>>> 32483dd48ff5f59144ac7e039c8d63cc09aa7971
->>>>>>> b205785a235730a081cbebef6c7f6b40c2074484
 
 const App: FC = () => {
   const [showHeroImage, setShowHeroImage] = useState(true);
