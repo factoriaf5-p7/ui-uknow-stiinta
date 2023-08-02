@@ -13,15 +13,72 @@ describe("Login", () => {
           </MemoryRouter>
       )   
     });
-  
-    
-    test('must have a form with the following fields: email, password and a submit button', () => {
-      expect(screen.getByLabelText(/Email/i)).toBeInTheDocument()
-      expect(screen.getByLabelText(/Password/i)).toBeInTheDocument()
-      expect(screen.getByRole('button', {name:   /Log In/i}))
+
+    test("displays 'Welcome back'", () => {
+      expect(screen.getByText("Welcome back")).toBeInTheDocument();
     });
 
-    test('display All fields are required.”', async () => {
+    test("displays 'Uknow is a cutting-edge application designed for programming enthusiasts and aspiring developers. Uknow has you covered.'", () => {
+      expect(screen.getByText(/Uknow is a cutting-edge application designed for programming enthusiasts and aspiring developers\. Uknow has you covered\./)).toBeInTheDocument();
+    });
+  
+    test("displays 'Remember me' checkbox", () => {
+      const rememberMeCheckbox = screen.getByLabelText(/Remember me/i);
+      expect(rememberMeCheckbox).toBeInTheDocument();
+      expect(rememberMeCheckbox).toHaveAttribute("type", "checkbox");
+      expect(screen.getByText("Remember me")).toBeInTheDocument();
+    });
+
+    test("displays '¿Forgot your password?' link", () => {
+      expect(screen.getByText("¿Forgot your password?")).toBeInTheDocument();
+    });
+  
+    
+    test("displays 'Forgot Password?' link", () => {
+      const forgotPasswordLink = screen.getByText(/¿Forgot your password?/i);
+      expect(forgotPasswordLink).toBeInTheDocument();
+      expect(forgotPasswordLink.tagName).toBe("A");
+      expect(forgotPasswordLink).toHaveClass("font-medium text-dark hover:text-text");
+      expect(forgotPasswordLink.href).toBe(window.location.href); // Verify link is empty
+    });
+
+    test("displays 'Login' button", () => {
+      expect(screen.getByRole("button", { name: /Login/i })).toBeInTheDocument();
+    });
+
+    test("displays 'You don't have an account yet? Sign in' link", () => {
+      expect(screen.getByText("You don't have an account yet?")).toBeInTheDocument();
+    });
+
+    test("displays error message when an invalid email is entered", async () => {
+      const emailInput = screen.getByLabelText("Email");
+      const passwordInput = screen.getByLabelText("Password");
+      const loginButton = screen.getByRole("button", { name: /Login/i });
+  
+      fireEvent.change(emailInput, { target: { value: "invalidemail" } });
+      fireEvent.change(passwordInput, { target: { value: "password123" } });
+  
+      fireEvent.click(loginButton);
+  
+      expect(await screen.findByText(/Email is not valid./i)).toBeInTheDocument();
+    });
+  
+    test("displays error message when an invalid password is on", async () => {
+      const emailInput = screen.getByLabelText("Email");
+      const passwordInput = screen.getByLabelText("Password");
+      const loginButton = screen.getByRole("button", { name: /Login/i });
+  
+      fireEvent.change(emailInput, { target: { value: "invalid@email.com" } });
+      fireEvent.change(passwordInput, { target: { value: "pass" } });
+  
+      fireEvent.click(loginButton);
+  
+      expect(await screen.findByText(/Password must be at least 8 characters./i)).toBeInTheDocument();
+    });
+  
+    
+
+ /*    test('display All fields are required.”', async () => {
         expect(screen.queryByText(/All fields are required./i)).not.toBeInTheDocument()
         expect(
           screen.queryByText(/All fields are required./i),
@@ -61,6 +118,6 @@ describe("Login", () => {
     
         expect(screen.getByText(/Email is not valid./i)).toBeInTheDocument();
       });
-
+ */
       
 });

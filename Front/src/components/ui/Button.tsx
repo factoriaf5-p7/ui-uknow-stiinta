@@ -5,9 +5,9 @@ interface ButtonProps {
     action?: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 
-function Button ({children, color, text, action}: ButtonProps ): JSX.Element {
+function Button ({children, color, text,action}: ButtonProps ): JSX.Element {
   return (
-    <button onClick={action} className={`${color} ${text} py-1.5 px-1.5 text-sm rounded-md hover:font-bold`}>{children}</button>
+    <button onClick={action} className={`${color} ${text} py-1.5 px-1.5 text-sm rounded-md hover:font-bold flex-1`}>{children}</button>
   )
 }
 

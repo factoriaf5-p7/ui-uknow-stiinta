@@ -3,6 +3,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import useAuth from '../hooks/useAuth';
 import {  useNavigate, useLocation } from 'react-router-dom';
+import Button from '@/components/ui/Button';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -49,25 +50,27 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-background min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
+      <img className='m-auto' src="logo.svg" alt="logo:Uknow" />
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Login</h2>
-          <p className="mt-2 text-center text-sm text-gray-600">Uknow is a cutting-edge application designed for programming enthusiasts and aspiring developers.
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-dark">Welcome back</h2>
+          <p className="mt-2 text-center text-sm text-text ">Uknow is a cutting-edge application designed for programming enthusiasts and aspiring developers.
 Uknow has you covered.</p>
-          {error && <p className="mt-2 text-center text-red-600">{error}</p>}
+          {error && <p className="mt-2 text-center text-red-500">{error}
+          <img src="advertencia.png" className="block mx-auto mt-2 max-w-24 max-h-24" alt="imagen de advertencia" /></p>}
         </div>
         <form className="mt-8 space-y-6" onSubmit={(e) => e.preventDefault()}>
           <div className="rounded-md shadow-sm space-y-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-sm font-medium text-dark">
                 <b>Email</b>
               </label>
               <input
                 id="email"
                 name="email"
                 type="email"
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-dark rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -80,7 +83,7 @@ Uknow has you covered.</p>
                 id="password"
                 name="password"
                 type="password"
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -95,27 +98,26 @@ Uknow has you covered.</p>
                 type="checkbox"
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
-              <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">
+              <label htmlFor="remember_me" className="ml-2 block text-sm text-remember">
                 Remember me
               </label>
             </div>
 
             <div className="text-sm">
-              <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+              <a href="" className="font-medium text-dark hover:text-text">
                 ¿Forgot your password?
               </a>
             </div>
           </div>
 
-          <div>
-            <button
-              className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-              onClick={handleLogin}
-            >
-              Log In
-            </button>
-            <p className="p-6">You don't have an account yet? <span className="text-orange-500 underline p-1">Sign in</span></p>
-          </div>
+        <div className='flex w-full '>
+         <Button action={handleLogin} color="bg-btnOscuro" text="text-white">
+        Login
+      </Button>
+      </div>
+ 
+     <p className="p-6 text-text">You don't have an account yet? <span className="text-orange-500 hover:underline p-1 cursor-pointer">Sign in</span></p>
+
         </form>
       </div>
     </div>
