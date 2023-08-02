@@ -1,13 +1,11 @@
 import Average from "./ui/Average";
-import Button from "../components/ui/Button";
 import TagDifficulty from "../components/ui/TagDifficulty";
-import { buyCourse, getCourses } from "@/services/lib/course";
+import { getCourses } from "@/services/lib/course";
 import { Course } from "@/types/course.type";
 import { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import { Badge } from "@/components/ui/badge"
-import { BuyCourse } from "@/types/buyCourse.types";
 import Alert from "./ui/Alert";
 
 

@@ -15,7 +15,7 @@ import { Course } from "@/types/course.type";
 
 type AlertProps = Partial<Course> & { textButton: string}
 
-function Alert( { textButton,  _id }: AlertProps): JSX.Element {
+function Alert( { textButton,  _id, name, price }: AlertProps): JSX.Element {
   const [buyCourseObject, setBuyCourseOject] = useState<BuyCourse>({
     userId: "",
     courseId: "",
@@ -45,12 +45,12 @@ console.log(buyCourseObject.courseId);
       <DialogContent>
         <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-36 bg-cover bg-center  rounded-t-xl relative"></div>
         <DialogHeader>
-          <DialogTitle>Nombre de curso</DialogTitle>
+          <DialogTitle>Confirma su compra</DialogTitle>
           <DialogDescription>
-            <p>Esta seguro de que quiere comprar el curso?</p>
+            <h2>Esta seguro de que quiere comprar el curso de <strong>{name}</strong>?</h2>
           </DialogDescription>
           <h5 className=" text-slate-400">
-            <strong className="text-black text-lg">50</strong>
+            <strong className="text-black text-lg">{price}</strong>
             /kwl
           </h5>
 
@@ -68,6 +68,4 @@ console.log(buyCourseObject.courseId);
 
 export default Alert;
 
-// function setIsLoading(arg0: boolean) {
-//     throw new Error("Function not implemented.");
-// }
+
