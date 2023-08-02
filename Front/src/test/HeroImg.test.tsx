@@ -11,6 +11,7 @@ describe("HeroImg", () => {
         </MemoryRouter>
       );
     });
+    
   
     test("renders the logo", () => {
         const logo = screen.getByAltText("logo");
@@ -23,5 +24,4 @@ describe("HeroImg", () => {
         expect(heroImage).toBeInTheDocument();
         expect(heroImage.tagName).toBe("IMG");
       });
-
 });
