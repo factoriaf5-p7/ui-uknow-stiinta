@@ -13,6 +13,9 @@ export function getCourse(id: string){
 export function getBought(id: string){
     return axiosClient.get(`/courses/bought-courses/${id}`);
 }
+export function getCreated(id: string){
+    return axiosClient.get(`/courses/created-courses/${id}`);
+}
 
 export function createCourse(course: CreateCourse){
     return axiosClient.post('/courses', JSON.stringify(course));
