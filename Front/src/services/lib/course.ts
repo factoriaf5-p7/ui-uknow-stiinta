@@ -10,8 +10,8 @@ export function getCourse(id: string){
     return axiosClient.get(`/courses/${id}`);
 }
 
-export function createCourse(id:string){
-    return axiosClient.post(`/courses/create/${id}`);
+export function createCourse(id:string,newCourse:CreateCourse){
+    return axiosClient.post(`/courses/create/${id}`,newCourse);
 }
 
 export function buyCourse(buyCourse: BuyCourse) {

@@ -6,6 +6,7 @@ import Search from '@/components/Search';
 import useAuth from '@/hooks/useAuth';
 import { Skeleton } from '@/components/ui/skeleton';
 
+
 const CardHome = React.lazy(() => import('@/components/CardHome'))
 
 function Home() {
