@@ -29,7 +29,7 @@ function UserDashboard() {
         <h2 className="my-4 font-semibold">Cursos</h2>
 
         <article className="flex gap-3 ">
-          <div className="flex-1 rounded-sm bg-blueLight p-6 grid place-content-center cursor-pointer">
+          <div className="flex-1 rounded-sm bg-blueLight p-6 grid place-content-center cursor-pointer  transition-transform transform hover:scale-105">
             <img
               className="m-auto"
               src="../../public/icon-search.svg"
@@ -41,13 +41,13 @@ function UserDashboard() {
             <p className="text-center  text-xs">My content</p>
           </div>
           <div className="flex-1">
-            <div className="rounded-sm bg-purple p-6 mb-3 text-center cursor-pointer">
+            <div className="rounded-sm bg-purple p-6 mb-3 text-center cursor-pointer   transition-transform transform hover:scale-105">
               <h5 className="font-semibold text-center cursor-pointer">
                 {auth?.user?.data.bought_courses.length}
               </h5>
               cursos comprados
             </div>
-            <div className="rounded-sm bg-orangeLight p-6 text-center cursor-pointer">
+            <div className="rounded-sm bg-orangeLight p-6 text-center cursor-pointer   transition-transform transform hover:scale-105">
               <h3 className="font-bold text-2xl ">+</h3>
               <p>Crear Curso</p>
             </div>
