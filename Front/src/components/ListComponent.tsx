@@ -2,7 +2,7 @@ import Button from "./ui/Button";
 
 function ListComponent() {
   return (
-    <article className="container bg-white rounded-2xl p-4 flex flex-row justify-start gap-4 items-center ">
+    <article className="container bg-white rounded-2xl p-6 flex flex-row justify-start gap-4 items-center ">
     
         <img
           className="rounded-full object-cover h-10 w-10"
