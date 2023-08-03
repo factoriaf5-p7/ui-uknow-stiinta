@@ -23,6 +23,7 @@ module.exports = {
         title: '#150A33',
         text: '#524B6B',
         dark: '#0D0140',
+        orange: '#FF9228',
         hero:'#524B6B',
         remember: '#AAA6B9',
         border: "hsl(var(--border))",
