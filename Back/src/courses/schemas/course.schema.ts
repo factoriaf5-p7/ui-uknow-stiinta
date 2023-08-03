@@ -2,7 +2,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ApiProperty } from '@nestjs/swagger';
-import { ObjectId } from 'mongoose';
 
 @Schema({ timestamps: true })
 export class Course {
