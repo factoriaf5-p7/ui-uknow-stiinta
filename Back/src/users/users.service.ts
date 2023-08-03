@@ -124,7 +124,7 @@ export class UsersService {
 	async findOneWithBoughtCourses(id: ObjectId){
 		
 		try {
-			const boughtCourses = await this.userModel.findOne({ _id: id }, { bought_courses: 1 }).populate('bought_courses.course_id');
+			const boughtCourses = await this.userModel.findOne({ _id: id }, { bought_courses: 1 }).populate('bought_courses.course_id');				
 			
 			return {
 				message: 'User with bought courses retrived successfully',

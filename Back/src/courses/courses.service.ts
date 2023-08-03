@@ -74,7 +74,8 @@ export class CoursesService {
 			entries.forEach(course=> { 
 				boughtCourses.push({ _id: course[1].course_id['_id'] ,name: course[1].course_id.name });
 			});
-
+			console.log(boughtCourses);
+			
 			return {
 				message: 'Retrieved all courses purchased by user successfully',
 				status: HttpStatus.OK,
@@ -206,6 +207,7 @@ export class CoursesService {
 		entries.forEach((course) => {
 			createdCourses.push({ _id: course[1]._id, name: course[1].name });
 		});
+		console.log(createdCourses);		
 
 		return {
 			message: 'Retrieved all created courses successfully',
