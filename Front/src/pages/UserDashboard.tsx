@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button";
 import useAuth from "@/hooks/useAuth";
+import { Link } from "react-router-dom";
 
 function UserDashboard() {
   const { auth } = useAuth();
@@ -47,10 +48,12 @@ function UserDashboard() {
               </h5>
               cursos comprados
             </div>
-            <div className="rounded-sm bg-orangeLight p-6 text-center cursor-pointer   transition-transform transform hover:scale-105">
+            <Link to={"/post"}>
+            <div className="rounded-sm bg-orangeLight p-6 text-center cursor-pointer  transition-transform transform hover:scale-105">
               <h3 className="font-bold text-2xl ">+</h3>
               <p>Crear Curso</p>
             </div>
+            </Link> 
           </div>
         </article>
       </div>

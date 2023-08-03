@@ -5,6 +5,7 @@ import useAuth from "@/hooks/useAuth";
 import Select from "./Select";
 import Button from "./ui/Button";
 import ReactMarkdown from "react-markdown";
+import { Link } from "react-router-dom";
 
 function CourseForm() {
   const [name, setName] = useState("");
@@ -45,6 +46,7 @@ console.log(courseData)
   return (
     <div className="bg-background min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8  text-dark">
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+     <Link to={"/home"}> <img className='m-auto' src="logo.svg" alt="logo:Uknow" /></Link>
         <div className="flex flex-col ">
           <label htmlFor="name">Name</label>
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} />

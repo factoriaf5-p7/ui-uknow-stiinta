@@ -13,7 +13,7 @@ export class CreateCourseDto {
 	@IsNotEmpty()
 		name: string;
 
-	@ApiProperty({ example: 'Web development | Backend | Frontend ' })
+	@ApiProperty({ example: 'Web Development | Backend | Frontend ' })
 	@IsString()
 	@IsNotEmpty()
 		topic: string;
@@ -27,7 +27,7 @@ export class CreateCourseDto {
 	@ApiProperty({ example: '#webdevolopment, #javascript, #css' })
 	@IsArray()
 	@ArrayMaxSize(3)
-		tags: [string, string, string];
+		tags: string[];
 	
 	@ApiProperty({ example: '### How to validate dtos properties<br>## Class-validator<br>To validate install the package as follow: nmp i class-validator.' })
 	@IsString()

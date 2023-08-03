@@ -23,7 +23,7 @@ export class CoursesService {
 		try {
 			const newCourse = await this.courseModel.create(createCourseDto);
 			this.userService.addCreatedCourse(userId, newCourse._id);
-
+             
 			return {
 				message: 'New course created successfully.',
 				status: HttpStatus.OK,
