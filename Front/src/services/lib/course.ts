@@ -10,6 +10,10 @@ export function getCourse(id: string){
     return axiosClient.get(`/courses/${id}`);
 }
 
+export function getBought(id: string){
+    return axiosClient.get(`/courses/bought-courses/${id}`);
+}
+
 export function createCourse(course: CreateCourse){
     return axiosClient.post('/courses', JSON.stringify(course));
 }
@@ -18,6 +22,9 @@ export function buyCourse(buyCourse: BuyCourse) {
     const headers = {
       'Content-Type': 'application/json',
     };
+
+    
+
   
     return axiosClient.patch('courses/purchase', buyCourse, { headers });
   }

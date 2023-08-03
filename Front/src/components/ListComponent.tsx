@@ -1,6 +1,13 @@
 import Button from "./ui/Button";
 
-function ListComponent() {
+interface ListProps {
+  title: string;
+   type: "bought" | "created";
+
+
+}
+
+function ListComponent( {title, type }: ListProps) {
   return (
     <article className="container bg-white rounded-2xl p-6 flex flex-row justify-start gap-4 items-center ">
     
@@ -9,13 +16,18 @@ function ListComponent() {
           src="../../public/img-course.svg"
           alt="image course"
         />
-        <div className="flex-1">
-          <h2 className="text-title2 font-semibold text-lg">Titulo curso</h2>
-          <small>Frontend</small>
-        </div>
+        <div className="flex-1 cursor-default">
+          <h2 className="text-title2 font-semibold text-lg">{title}</h2>
+               </div>
         <div>
 
-        <Button children="Ir al curso" text="text-dark" color="bg-purple" />
+        {type === "bought" ? (
+          <Button children="Ir al curso" text="text-dark" color="bg-purple" />
+        ) : (
+          <img className="cursor-pointer" src="../../public/icon-trash.svg" alt="icon trash" />
+        )}
+
+     
         </div>
      
     </article>
