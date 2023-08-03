@@ -48,7 +48,7 @@ function Header(): JSX.Element {
                Kwl
               </span>
                </p>
-      <Popover className="">
+      <Popover>
         <PopoverTrigger>
           <Avatar className="ml-auto">
             <AvatarImage src="https://github.com/shadcn.png" />
