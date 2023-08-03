@@ -27,15 +27,16 @@ const App: FC = () => {
               />
             }
           />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route element={<Layout />}>
             <Route path="/home" element={<Home />} />
-          </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/user" element={<UserDashboard />} />
-          <Route element={<RequireAuth allowedRoles={["user"]} />}>
-            <Route path="/protected" element={<Protected />} />
-            <Route path="/test" element={<Test />} />
+            <Route path="/user" element={<UserDashboard />} />
+
+            <Route element={<RequireAuth allowedRoles={["user"]} />}>
+              <Route path="/protected" element={<Protected />} />
+              <Route path="/test" element={<Test />} />
+            </Route>
           </Route>
         </Routes>
       </Router>

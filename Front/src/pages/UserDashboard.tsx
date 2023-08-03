@@ -1,17 +1,12 @@
-// import useAuth from "@/hooks/useAuth"
-// import { getOneUser } from "@/services/lib/user"
-// import { ProfileUser } from "@/types/user.type"
-// import { AxiosResponse } from "axios"
-// import { useEffect, useState } from "react"
-
 import Button from "@/components/ui/Button";
 import useAuth from "@/hooks/useAuth";
 
 function UserDashboard() {
   const { auth } = useAuth();
 
-  return (
-    <section className="container">
+  return ( 
+
+    <section className="container md:mt-28 ">
       <div className=" max-w-lg mx-auto ">
         <h1 className="text-dark text-xl font-semibold w-2/3 my-4 ">
           Hello<br></br> {auth?.user?.data.name}
@@ -34,7 +29,7 @@ function UserDashboard() {
         <h2 className="my-4 font-semibold">Cursos</h2>
 
         <article className="flex gap-3 ">
-          <div className="flex-1 rounded-sm bg-blueLight p-6 grid place-content-center">
+          <div className="flex-1 rounded-sm bg-blueLight p-6 grid place-content-center cursor-pointer">
             <img
               className="m-auto"
               src="../../public/icon-search.svg"
@@ -46,13 +41,13 @@ function UserDashboard() {
             <p className="text-center  text-xs">My content</p>
           </div>
           <div className="flex-1">
-            <div className="rounded-sm bg-purple p-6 mb-3 text-center">
-              <h5 className="font-semibold text-center">
+            <div className="rounded-sm bg-purple p-6 mb-3 text-center cursor-pointer">
+              <h5 className="font-semibold text-center cursor-pointer">
                 {auth?.user?.data.bought_courses.length}
               </h5>
               cursos comprados
             </div>
-            <div className="rounded-sm bg-orangeLight p-6 text-center">
+            <div className="rounded-sm bg-orangeLight p-6 text-center cursor-pointer">
               <h3 className="font-bold text-2xl ">+</h3>
               <p>Crear Curso</p>
             </div>
