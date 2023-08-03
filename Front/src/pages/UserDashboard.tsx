@@ -34,8 +34,8 @@ function UserDashboard() {
 
       <article className=" relative ">
         <div className="bg-btnOscuro p-5 rounded-sm h-[150px]">
-          <h3 className="text-white font-normal">50% off take any courses</h3>
-          <Button children="Buy Now" color="bg-orange" text="white"  />
+          <h3 className="text-white font-normal w-2/3 my-4">50% off take any courses</h3>
+          <Button children="Buy Now" color="bg-orange" text="text-white"  />
           <img className="absolute bg-transparent top-[-31px] right-0 " src="girl-image.svg" alt="girl image" />
         </div>
       </article>
