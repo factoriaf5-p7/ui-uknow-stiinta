@@ -21,6 +21,7 @@ module.exports = {
         btnOscuro:'#130160',
         stars: '#FF9343',
         title: '#150A33',
+        title2: '#150B3D',
         text: '#524B6B',
         dark: '#0D0140',
         orange: '#FF9228',

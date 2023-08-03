@@ -2,16 +2,16 @@ import Button from "./ui/Button";
 
 function ListComponent() {
   return (
-    <article className="container bg-white flex justify-around rounded-lg p-4">
+    <article className="container bg-white rounded-2xl p-4 flex flex-row justify-start gap-4 items-center ">
     
         <img
           className="rounded-full object-cover h-10 w-10"
           src="../../public/img-course.svg"
           alt="image course"
         />
-        <div>
-          <h2>Titulo curso</h2>
-          <p>difficulty</p>
+        <div className="flex-1">
+          <h2 className="text-title2 font-semibold text-lg">Titulo curso</h2>
+          <small>Frontend</small>
         </div>
         <div>
 

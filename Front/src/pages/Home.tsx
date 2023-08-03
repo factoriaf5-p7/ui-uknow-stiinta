@@ -5,6 +5,7 @@ import { getCourses } from "@/services/lib/course";
 import Search from '@/components/Search';
 import useAuth from '@/hooks/useAuth';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Course } from "@/types/course.type";
 
 const CardHome = React.lazy(() => import('@/components/CardHome'))
 
