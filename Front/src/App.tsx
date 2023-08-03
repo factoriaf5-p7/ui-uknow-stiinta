@@ -12,6 +12,7 @@ import Layout from "@/components/Layout";
 import Test from "./pages/Test";
 import BoughtCourses from "./pages/BoughtCourses";
 import CreatedCourses from "./pages/CreatedCourses";
+import CourseForm from "./components/CourseForm";
 
 const App: FC = () => {
   const [showHeroImage, setShowHeroImage] = useState(true);
@@ -29,6 +30,7 @@ const App: FC = () => {
               />
             }
           />
+             <Route path="/post" element={<CourseForm />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route element={<Layout />}>
