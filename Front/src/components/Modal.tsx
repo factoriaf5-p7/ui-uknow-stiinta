@@ -11,11 +11,26 @@ import { Course } from "@/types/course.type";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import TagDifficulty from "@/components/ui/TagDifficulty";
 import Average from "@/components/ui/Average";
+import { BuyCourse } from "@/types/buyCourse.types";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import useAuth from "@/hooks/useAuth";
+import { AxiosResponse } from "axios";
+import { buyCourse } from "@/services/lib/course";
 
 type ModalProps = Partial<Course> & { textButton: string };
 
 
-function Modal({ textButton, name, content, difficulty, average, price }: ModalProps): JSX.Element {
+function Modal({ textButton, name, content, difficulty, average, price, _id }: ModalProps): JSX.Element {
+      const {auth} = useAuth()
+  const [buyCourseObject, setBuyCourseOject] = useState<BuyCourse>({
+    userId: "",
+    courseId: "",
+  });
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/home";
   // Obtener las 15 primeras palabras de la descripción
   const truncateDescription = (str: string, numWords: number) => {
     const words: string[] = str.split(" ");
@@ -29,6 +44,27 @@ function Modal({ textButton, name, content, difficulty, average, price }: ModalP
   };
 
   const courseContent = content !== undefined ? content : "Descripción del curso";
+
+  const handleBuyCourse = async () => {
+    try {
+      const buyCourseObject: BuyCourse = {
+        userId: auth?.user?.data._id || "",
+        courseId: _id || "" ,
+      };
+console.log(buyCourseObject.courseId);
+
+      const response: AxiosResponse = await buyCourse(buyCourseObject);
+      console.log(response);
+      setBuyCourseOject(buyCourseObject); // Mover esta línea aquí
+      if(response.data.status=== 200){
+        alert(response.data.message)        
+        navigate(from, { replace: true });
+      }
+    } catch (error) {
+      console.error("Error al comprar el curso:", error);
+    }
+  };
+
 
 
 
@@ -61,7 +97,7 @@ function Modal({ textButton, name, content, difficulty, average, price }: ModalP
                     /kwl
                   </h5>
           
-          <Button color="bg-btnOscuro" text="text-white" children="Comprar" />
+          <Button action={handleBuyCourse} color="bg-btnOscuro" text="text-white" children="Comprar" />
         </DialogHeader>
       </DialogContent>
     </Dialog>

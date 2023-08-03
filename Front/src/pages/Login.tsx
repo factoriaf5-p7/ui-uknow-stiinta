@@ -49,6 +49,7 @@ const Login: React.FC = () => {
     }
   };
   useEffect(() => {
+    console.log(location.state?.from?.pathname);
     localStorage.setItem('persist', true)
   }, [persist])
 

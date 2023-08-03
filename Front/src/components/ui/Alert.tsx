@@ -13,6 +13,7 @@ import { useState } from "react";
 import { BuyCourse } from "@/types/buyCourse.types";
 import { Course } from "@/types/course.type";
 import useAuth from "@/hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 type AlertProps = Partial<Course> & { textButton: string}
 
@@ -22,6 +23,10 @@ function Alert( { textButton,  _id, name, price }: AlertProps): JSX.Element {
     userId: "",
     courseId: "",
   });
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/home";
 
   const handleBuyCourse = async () => {
     try {
@@ -35,7 +40,8 @@ console.log(buyCourseObject.courseId);
       console.log(response);
       setBuyCourseOject(buyCourseObject); // Mover esta línea aquí
       if(response.data.status=== 200){
-        alert(response.data.message)
+        alert(response.data.message)        
+        navigate(from, { replace: true });
       }
     } catch (error) {
       console.error("Error al comprar el curso:", error);
