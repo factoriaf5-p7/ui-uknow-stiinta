@@ -32,7 +32,7 @@ function UserDashboard() {
     <section className="container">
       <h1 className="text-dark text-xl font-semibold w-2/3 my-4 ">Hello<br></br> Orlando Diggs.</h1>
 
-      <article className=" relative ">
+      <article className=" relative">
         <div className="bg-btnOscuro p-5 rounded-sm h-[150px]">
           <h3 className="text-white font-normal w-2/3 my-4">50% off take any courses</h3>
           <Button children="Buy Now" color="bg-orange" text="text-white"  />
