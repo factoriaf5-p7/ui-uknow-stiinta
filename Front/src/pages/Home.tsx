@@ -1,28 +1,23 @@
-import CardHome from '@/components/CardHome';
-import { useEffect, useState } from "react";
+// import CardHome from '@/components/CardHome';
+import React, { useEffect, useState, Suspense } from "react";
 import { AxiosResponse } from "axios";
 import { getCourses } from "@/services/lib/course";
-import { Input } from "@/components/ui/input";
+import Search from '@/components/Search';
+import useAuth from '@/hooks/useAuth';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const CardHome = React.lazy(() => import('@/components/CardHome'))
 
 function Home() {
    // estados
    const [courses, setCourses] = useState<Course[]>([]);
    const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { auth } = useAuth()
  
-   const [search, setSearch] = useState({
-     query: '',
-     list: []
-   })
+   const [search, setSearch] = useState('')
 
    const handleSearch = (e) => {
-    const results = courses.filter(course => {
-      if (e.target.value === '') return courses
-      return course.name.toLowerCase().includes(e.target.value.toLowerCase())
-    })
-    setSearch({
-      query: e.target.value,
-      list: results
-    })
+    setSearch(e.target.value)
   }
    
    useEffect(() => {
@@ -40,22 +35,28 @@ function Home() {
     };
    
     fetchCourses()
-    console.log(courses)
+    console.log(courses, auth)
   }, []);
 
   return (
     <div className='md:mt-32'>
       <section className=" bg-background">
-        <div className="bg-[url('/header-bg.svg')] bg-no-repeat bg-cover md:bg-none px-4 py-6 rounded-bl-3xl rounded-br-3xl mb-9 ">
-          <Input placeholder="Buscar curso" className="max-w-3xl mx-auto my-8" onChange={handleSearch} />
-        </div>
+       <Search onChange={handleSearch} />
+      
         <div className="card-home flex gap-y-7 flex-wrap justify-center max-w-screen-2xl mx-auto  ">
-        {courses.map(course => (
+        {courses
+        .filter((el) => 
+          el.name.toLowerCase().includes(search.toLowerCase()) || 
+          el.content.toLowerCase().includes(search.toLowerCase())
+        )
+        .map(course => (
           <>
             {isLoading ? (
               <div>Loading...</div>
             ) : (
+              <Suspense fallback={<div className="card-home flex gap-y-7 flex-wrap justify-center max-w-screen-2xl mx-auto  "><Skeleton className="h-52 w-48" /></div>}>
               <CardHome {...course} />
+              </Suspense>
             )}
           </>
         ))}

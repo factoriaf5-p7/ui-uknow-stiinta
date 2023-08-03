@@ -7,8 +7,8 @@ import Alert from "./ui/Alert";
 
 function CardHome(course: Course) {
   return (
-    <>
-      <div key={'ss'} className="rounded-2xl w-full sm:w-min-[80vw] md:w-1/3 lg:w-1/5 flex flex-col card-content-container transition-shadow transform hover:shadow-md hover:scale-105 hover:transition-all duration-300 ease-in-out mx-5">
+ 
+      <div key={course.name} className="rounded-2xl w-full sm:w-min-[80vw] md:w-1/3 lg:w-1/5 flex flex-col card-content-container transition-shadow transform hover:shadow-md hover:scale-105 hover:transition-all duration-300 ease-in-out mx-5">
         <div className="image-section bg-[url('/public/img-course.svg')] bg-no-repeat h-40 bg-cover bg-center  rounded-t-xl relative flex-none">
           <TagDifficulty
             color={
@@ -42,7 +42,6 @@ function CardHome(course: Course) {
           </div>
         </div>
       </div>
-    </>
   );
 }
 
