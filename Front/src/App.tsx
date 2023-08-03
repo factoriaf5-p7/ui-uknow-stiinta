@@ -36,7 +36,6 @@ const App: FC = () => {
           <Route element={<RequireAuth allowedRoles={["user"]} />}>
             <Route path="/protected" element={<Protected />} />
             <Route path="/test" element={<Test />} />
-            <Route path="/dashboard" element={<UserDashboard />} />
           </Route>
         </Routes>
       </Router>

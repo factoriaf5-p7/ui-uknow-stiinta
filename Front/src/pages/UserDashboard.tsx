@@ -5,32 +5,16 @@
 // import { useEffect, useState } from "react"
 
 import Button from "@/components/ui/Button"
+import useAuth from "@/hooks/useAuth"
 
 
 function UserDashboard() { 
-//   const [user,setUser] = useState<ProfileUser[]>([])
-//   const [auth,setAuth] = useAuth()
-
-// useEffect(() => {
-// const fetchUser = async () => {
- 
-//   const response : AxiosResponse = await getOneUser(id)
-//   try {
-//         setUser(response.data)
-//         console.log(setUser)
-//   }catch(error){
-//   console.log(error)
-//   }
-// }
-// fetchUser()
-
-// },[])
-
+  const {auth} = useAuth()
 
   return (
    
     <section className="container">
-      <h1 className="text-dark text-xl font-semibold w-2/3 my-4 ">Hello<br></br> Orlando Diggs.</h1>
+      <h1 className="text-dark text-xl font-semibold w-2/3 my-4 ">Hello<br></br> { auth?.user?.data.name }</h1>
 
       <article className=" relative">
         <div className="bg-btnOscuro p-5 rounded-sm h-[150px]">

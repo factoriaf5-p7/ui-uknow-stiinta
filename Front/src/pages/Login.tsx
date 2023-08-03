@@ -24,7 +24,7 @@ const Login: React.FC = () => {
         withCredentials: true
     });
       const token = response.data.data;
-      setAuth({token, roles: response.data.roles})
+      // setAuth({token, roles: response.data.roles})
       // setPersist(true)
       localStorage.setItem('token',response.data.data)
       // Validar los campos antes de enviar el formulario
