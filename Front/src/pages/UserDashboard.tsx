@@ -11,7 +11,7 @@ function UserDashboard() {
 
 useEffect(() => {
 const fetchUser = async () => {
-  const id = "64ca268b3f682cb2c96640c6"
+ 
   const response : AxiosResponse = await getOneUser(id)
   try {
         setUser(response.data)
