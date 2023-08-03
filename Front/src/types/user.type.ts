@@ -1,4 +1,5 @@
 export interface ProfileUser {
+  data: any;
     
 	
     name: string;
