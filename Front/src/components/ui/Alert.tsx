@@ -12,10 +12,12 @@ import { AxiosResponse } from "axios";
 import { useState } from "react";
 import { BuyCourse } from "@/types/buyCourse.types";
 import { Course } from "@/types/course.type";
+import useAuth from "@/hooks/useAuth";
 
 type AlertProps = Partial<Course> & { textButton: string}
 
 function Alert( { textButton,  _id, name, price }: AlertProps): JSX.Element {
+    const {auth} = useAuth()
   const [buyCourseObject, setBuyCourseOject] = useState<BuyCourse>({
     userId: "",
     courseId: "",
@@ -24,14 +26,17 @@ function Alert( { textButton,  _id, name, price }: AlertProps): JSX.Element {
   const handleBuyCourse = async () => {
     try {
       const buyCourseObject: BuyCourse = {
-        userId: localStorage.getItem("userId") || "",
+        userId: auth?.user?.data._id || "",
         courseId: _id || "" ,
       };
 console.log(buyCourseObject.courseId);
 
       const response: AxiosResponse = await buyCourse(buyCourseObject);
-      console.log(response.data.data);
+      console.log(response);
       setBuyCourseOject(buyCourseObject); // Mover esta línea aquí
+      if(response.data.status=== 200){
+        alert(response.data.message)
+      }
     } catch (error) {
       console.error("Error al comprar el curso:", error);
     }
