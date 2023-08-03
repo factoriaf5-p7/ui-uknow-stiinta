@@ -29,7 +29,7 @@ function UserDashboard() {
 
   return (
    
-    <section className="container  ">
+    <section className="container">
       <h1 className="text-dark text-xl font-semibold w-2/3 my-4 ">Hello<br></br> Orlando Diggs.</h1>
 
       <article className=" relative ">
@@ -40,17 +40,21 @@ function UserDashboard() {
         </div>
       </article>
 
-      <h2>Cursos</h2>
+      <h2 className="my-4 font-semibold">Cursos</h2>
 
-      <article>
-        <div>12 curosos</div>
-        <div>
-          <div>cursos comprados</div>
-          <div>crear curso</div>
+      <article className="flex gap-3 ">
+        <div className="flex-1 rounded-sm bg-blueLight p-6 grid place-content-center">
+          <img className="m-auto" src="../../public/icon-search.svg" alt="icon search" />
+          <h5 className="font-semibold text-center">12 cursos</h5>
+          <p className="text-center  text-xs">My content</p>
+          </div>
+        <div className="flex-1">
+          <div className="rounded-sm bg-purple p-6 mb-3 text-center">cursos comprados</div>
+          <div className="rounded-sm bg-orangeLight p-6 text-center">crear curso</div>
         </div>
       </article>
 
-      <h2>Cursos recientes</h2>
+      <h2 className="my-4 font-semibold">Cursos recientes</h2>
       <article>
         listado de cursos recientes
       </article>
