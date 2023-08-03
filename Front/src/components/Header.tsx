@@ -43,7 +43,7 @@ function Header(): JSX.Element {
         </div>
       </Link>
     <div className="ml-auto flex gap-3 align-center">
-            <p className="flex my-auto gap-1 text-xl">{auth?.user.data.wallet_balance}
+            <p className="flex my-auto gap-1 text-xl">{auth?.user?.data.wallet_balance}
             <span className="font-bold text-sm mt-auto">
                Kwl
               </span>
