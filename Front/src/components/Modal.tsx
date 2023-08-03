@@ -17,11 +17,13 @@ import { useState } from "react";
 import useAuth from "@/hooks/useAuth";
 import { AxiosResponse } from "axios";
 import { buyCourse } from "@/services/lib/course";
+import React from "react";
 
 type ModalProps = Partial<Course> & { textButton: string };
 
 
 function Modal({ textButton, name, content, difficulty, average, price, _id }: ModalProps): JSX.Element {
+  const [open, setOpen] = React.useState(false);
       const {auth} = useAuth()
   const [buyCourseObject, setBuyCourseOject] = useState<BuyCourse>({
     userId: "",
@@ -57,7 +59,8 @@ console.log(buyCourseObject.courseId);
       console.log(response);
       setBuyCourseOject(buyCourseObject); // Mover esta línea aquí
       if(response.data.status=== 200){
-        alert(response.data.message)        
+        alert(response.data.message)   
+        setOpen(false);     
         navigate(from, { replace: true });
       }
     } catch (error) {
@@ -69,7 +72,7 @@ console.log(buyCourseObject.courseId);
 
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen} >
       <DialogTrigger>
         <Button color="bg-btnClaro" text="text-text" children={textButton} />
       </DialogTrigger>
