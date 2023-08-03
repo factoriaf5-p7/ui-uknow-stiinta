@@ -37,7 +37,7 @@ function CreatedCourses() {const [courses, setCourses] = useState<Course[]>([]);
         <Search onChange={handleSearch} />
       </div>
       <section className="container max-w-lg mx-auto md:mt-28 flex flex-col gap-4">
-        <h1 className="mb-4 font-semibold text-title">Cursos comprados</h1>
+        <h1 className="mb-4 font-semibold text-title">Cursos creados</h1>
         {courses
           .filter((el) => el.name.toLowerCase().includes(search.toLowerCase()))
           .map((course) => (

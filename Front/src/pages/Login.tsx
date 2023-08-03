@@ -11,7 +11,7 @@ const Login: React.FC = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/home";
 
   const [error, setError] = useState('');
 
