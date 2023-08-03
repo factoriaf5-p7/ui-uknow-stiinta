@@ -6,28 +6,29 @@ import { useEffect, useState } from "react"
 
 
 function UserDashboard() {
-  const [user,setUser] = useState<ProfileUser[]>([])
-  const [auth,setAuth] = useAuth()
+//   const [user,setUser] = useState<ProfileUser[]>([])
+//   const [auth,setAuth] = useAuth()
 
-useEffect(() => {
-const fetchUser = async () => {
+// useEffect(() => {
+// const fetchUser = async () => {
  
-  const response : AxiosResponse = await getOneUser(id)
-  try {
-        setUser(response.data)
-        console.log(setUser)
-  }catch(error){
-  console.log(error)
-  }
-}
-fetchUser()
+//   const response : AxiosResponse = await getOneUser(id)
+//   try {
+//         setUser(response.data)
+//         console.log(setUser)
+//   }catch(error){
+//   console.log(error)
+//   }
+// }
+// fetchUser()
 
-},[])
+// },[])
 
 
   return (
    
     <div>
+      <h1>Dashboard</h1>
 
 
     </div>
