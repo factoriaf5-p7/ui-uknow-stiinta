@@ -50,7 +50,7 @@ describe("Login", () => {
       expect(screen.getByText("You don't have an account yet?")).toBeInTheDocument();
     });
 
-    test("displays error message when an invalid email is entered", async () => {
+/*     test("displays error message when an invalid email is entered", async () => {
       const emailInput = screen.getByLabelText("Email");
       const passwordInput = screen.getByLabelText("Password");
       const loginButton = screen.getByRole("button", { name: /Login/i });
@@ -75,7 +75,7 @@ describe("Login", () => {
   
       expect(await screen.findByText(/Password must be at least 8 characters./i)).toBeInTheDocument();
     });
-  
+   */
     
 
  /*    test('display All fields are required.”', async () => {

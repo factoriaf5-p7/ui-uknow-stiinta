@@ -32,11 +32,10 @@ const App: FC = () => {
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="user" element={<UserDashboard />} />
+          <Route path="/user" element={<UserDashboard />} />
           <Route element={<RequireAuth allowedRoles={["user"]} />}>
             <Route path="/protected" element={<Protected />} />
             <Route path="/test" element={<Test />} />
-            <Route path="/dashboard" element={<UserDashboard />} />
           </Route>
         </Routes>
       </Router>
