@@ -10,6 +10,8 @@ import HeroImg from "./pages/HeroImg";
 import UserDashboard from "./pages/UserDashboard";
 import Layout from "@/components/Layout";
 import Test from "./pages/Test";
+import BoughtCourses from "./pages/BoughtCourses";
+import CreatedCourses from "./pages/CreatedCourses";
 
 const App: FC = () => {
   const [showHeroImage, setShowHeroImage] = useState(true);
@@ -32,7 +34,8 @@ const App: FC = () => {
           <Route element={<Layout />}>
             <Route path="/home" element={<Home />} />
             <Route path="/user" element={<UserDashboard />} />
-
+            <Route path="/created-courses" element={<CreatedCourses />} />
+            <Route path="/bought-courses" element={<BoughtCourses />} />
             <Route element={<RequireAuth allowedRoles={["user"]} />}>
               <Route path="/protected" element={<Protected />} />
               <Route path="/test" element={<Test />} />
