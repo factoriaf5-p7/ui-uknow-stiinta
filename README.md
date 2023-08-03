@@ -21,7 +21,7 @@ npm run dev
 Ejecutar el backend:
 
 npm run start:dev
-Uso
+
 Una vez que hayas realizado la instalación y configuración, puedes acceder a la página web desde tu navegador en la dirección http://localhost:3000. En la página principal encontrarás una lista de cursos disponibles para la venta. Puedes hacer clic en cada curso para obtener más detalles y realizar una compra.
 
 Requisitos del sistema
