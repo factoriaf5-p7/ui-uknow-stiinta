@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axiosClient from '@/services/apiClient';
 import useAuth from '../hooks/useAuth';
 import {  useNavigate, useLocation, Link } from 'react-router-dom';
 import Button from '@/components/ui/Button';
