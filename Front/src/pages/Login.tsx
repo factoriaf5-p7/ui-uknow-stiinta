@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axiosClient from '@/services/apiClient';
 import useAuth from '../hooks/useAuth';
-import {  useNavigate, useLocation } from 'react-router-dom';
+import {  useNavigate, useLocation, Link } from 'react-router-dom';
 import Button from '@/components/ui/Button';
 import axios from 'axios';
 
@@ -120,8 +120,8 @@ const Login: React.FC = () => {
             </Button>
           </div>
 
-          <p className="p-6 text-text">You don't have an account yet? <span className="text-orange-500 hover:underline p-1 cursor-pointer">Sign in</span></p>
-
+        <p className="p-6 text-text">You don't have an account yet?  <Link to={'/register'}><span className="text-orange-500 hover:underline p-1 cursor-pointer">Sign up</span> </Link> </p>
+       
         </form>
       </div>
     </div>
