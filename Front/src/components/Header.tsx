@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import useAuth  from '@/hooks/useAuth'
 import {
   Popover,
   PopoverContent,
@@ -8,10 +9,13 @@ import {
 import useScrollListener from "@/hooks/useScrollListener"
 import { useState, useEffect } from "react"
 import { UserCircle2, FileStack, LogOut } from "lucide-react"
+import { userInfo } from "os"
 
 function Header(): JSX.Element {
   const [navClassList, setNavClassList] = useState([])
   const scroll = useScrollListener()
+  const { auth } = useAuth()
+  // console.log(auth.user.data, 'header')
 
   useEffect(() => {
     const _classList = []
@@ -38,7 +42,13 @@ function Header(): JSX.Element {
           <img src="/logo.svg" alt="Logo image" />
         </div>
       </Link>
-      <Popover className="ml-auto">
+    <div className="ml-auto flex gap-3 align-center">
+            <p className="flex my-auto gap-1 text-xl">{auth?.user.data.wallet_balance}
+            <span className="font-bold text-sm mt-auto">
+               Kwl
+              </span>
+               </p>
+      <Popover className="">
         <PopoverTrigger>
           <Avatar className="ml-auto">
             <AvatarImage src="https://github.com/shadcn.png" />
@@ -46,6 +56,7 @@ function Header(): JSX.Element {
           </Avatar>
         </PopoverTrigger>
         <PopoverContent>
+          <h5 className="text-center font-bold font-xl mb-3">{auth.user?.data.name}</h5>
           <ul className="flex flex-col gap-4">
             <li className="flex gap-4"><UserCircle2 />Profile</li>
             <li className="flex gap-4"><FileStack/> Contenidos</li>
@@ -53,6 +64,7 @@ function Header(): JSX.Element {
           </ul>
         </PopoverContent>
       </Popover>
+      </div>
       </div>
     </header>
   )
