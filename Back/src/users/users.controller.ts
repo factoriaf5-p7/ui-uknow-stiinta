@@ -19,7 +19,7 @@ export class UsersController {
 	}
 
 	@Get('admin')
-	// @UseGuards(AuthGuard) //admin
+	@UseGuards(AuthGuard) //admin
   	findAllAdmin() {
   		return this.usersService.findAllAdmin();
   	}
@@ -31,7 +31,7 @@ export class UsersController {
   	}
 
 	@Get()
-	// @UseGuards(AuthGuard) //admin
+	@UseGuards(AuthGuard) //admin
   	findAll() {
   		return this.usersService.findAll();
   	}

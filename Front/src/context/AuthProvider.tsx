@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 
 interface AuthProps {
     children: ReactNode
@@ -27,6 +27,11 @@ const AuthContext = createContext<AuthContextProps>({
 export const AuthProvider = ({ children }: AuthProps) => {
     const [auth, setAuth] = useState({});
     const [persist, setPersist] = useState(JSON.parse(localStorage.getItem('persist')) || false)
+    
+    console.log(auth)
+    useEffect(() => {
+        setAuth({token:localStorage.getItem('token')})
+    },[])
 
     return (
         <AuthContext.Provider value={{ auth, setAuth, persist, setPersist }}>

@@ -12,25 +12,22 @@ const Login: React.FC = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname ||"/";
+  const from = location.state?.from?.pathname || "/";
 
   const [error, setError] = useState('');
 
-  const credentials = {
-    email,
-    password,
-  };
-
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault()
     try {
-      const response = await axios.post('/auth/login', { email, password }, {
+      console.log(email, password)
+      const response = await axios.post('http://localhost:3000/auth/login', { email, password }, {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true
     });
       const token = response.data.data;
-      setAuth(token)
+      setAuth({token, roles: response.data.roles})
       // setPersist(true)
-      // localStorage.setItem('token',response.data.data)
+      localStorage.setItem('token',response.data.data)
       // Validar los campos antes de enviar el formulario
       if (!email || !password) {
         setError("All fields are required.");
@@ -46,12 +43,8 @@ const Login: React.FC = () => {
         return false;}
       setError(""); // Limpiar el mensaje de error si los campos son válidos
 
-      // const response = await axios.post('http://localhost:3000/auth/login', credentials);
-      // const token = response.data.data;
-      // const decodedToken: unknown = jwtDecode(token);
-      // setAuth(response.data);
-      // navigate(from, { replace: true });
-      console.log(response.data);
+      navigate(from, { replace: true });
+      console.log(response.data, auth, 'ay');
     } catch (error) {
       setError("Error in sign in, verify your credentials.");
     }
