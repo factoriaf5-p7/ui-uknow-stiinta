@@ -1,5 +1,7 @@
 import Button from "@/components/ui/Button";
 import useAuth from "@/hooks/useAuth";
+import { Link } from "react-router-dom";
+import CreatedCourses from "./CreatedCourses";
 
 function UserDashboard() {
   const { auth } = useAuth();
@@ -29,28 +31,34 @@ function UserDashboard() {
         <h2 className="my-4 font-semibold">Cursos</h2>
 
         <article className="flex gap-3 ">
-          <div className="flex-1 rounded-sm bg-blueLight p-6 grid place-content-center cursor-pointer  transition-transform transform hover:scale-105">
+          <Link className="flex-1 rounded-sm bg-blueLight p-6 grid place-content-center cursor-pointer  transition-transform transform hover:scale-105" to={"/bought-courses"}>
+          <div >
             <img
               className="m-auto"
               src="../../public/icon-search.svg"
               alt="icon search"
-            />
+              />
             <h5 className="font-semibold text-center">
               {auth?.user?.data.created_courses.length}
             </h5>
             <p className="text-center  text-xs">My content</p>
           </div>
+              </Link>
           <div className="flex-1">
+            <Link to={"/created-courses"} >
             <div className="rounded-sm bg-purple p-6 mb-3 text-center cursor-pointer   transition-transform transform hover:scale-105">
               <h5 className="font-semibold text-center cursor-pointer">
                 {auth?.user?.data.bought_courses.length}
               </h5>
               cursos comprados
             </div>
+            </Link>
+            <Link to={"/post"}>
             <div className="rounded-sm bg-orangeLight p-6 text-center cursor-pointer   transition-transform transform hover:scale-105">
               <h3 className="font-bold text-2xl ">+</h3>
               <p>Crear Curso</p>
             </div>
+            </Link>
           </div>
         </article>
       </div>
