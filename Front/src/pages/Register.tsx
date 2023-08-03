@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Button from "@/components/ui/Button";
+import { Link } from "react-router-dom";
 
 const Register: React.FC = () => {
   const [name, setName] = useState("");
@@ -152,7 +153,7 @@ const Register: React.FC = () => {
             </div>
 
             <div className="text-sm">
-              <a href="" className="font-medium text-dark hover:text-text">
+              <a  className="font-medium text-dark hover:text-text">
                 ¿Forgot your password?
               </a>
             </div>
@@ -163,7 +164,7 @@ const Register: React.FC = () => {
       </Button>
       </div>
    
-        <p className="p-6 text-text">You don't have an account yet? <span className="text-orange-500 underline p-1">Sign in</span></p>
+        <p className="p-6 text-text">You don't have an account yet? <Link to={'/login'}> <span className="text-orange-500 underline p-1">Sign in</span> </Link> </p>
      
       </form>
       </div>

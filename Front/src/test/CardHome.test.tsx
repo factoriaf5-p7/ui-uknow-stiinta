@@ -7,23 +7,16 @@ describe("CardHome", () => {
   beforeEach(async () => {
     render(
       <MemoryRouter>
-        <CardHome />
+        <CardHome _id={""} name={""} price={0} topic={""} difficulty={""} tags={[]} bought={false} average={undefined} content={""} />
       </MemoryRouter>
     );
   });
 
   test("renders CardHome component without errors", () => {
-    render(<CardHome />);
+    render(<CardHome _id={""} name={""} price={0} topic={""} difficulty={""} tags={[]} bought={false} average={undefined} content={""} />);
   });
   
-  test("displays 'Loading...' while fetching data", () => {
-    const loadingText = screen.getByText("Loading...");
-    expect(loadingText).toBeInTheDocument();
-  });
 
-
-  
-  
 
 
 

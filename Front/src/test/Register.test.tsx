@@ -163,7 +163,6 @@ describe("Register", () => {
     expect(forgotPasswordLink).toBeInTheDocument();
     expect(forgotPasswordLink.tagName).toBe("A");
     expect(forgotPasswordLink).toHaveClass("font-medium text-dark hover:text-text");
-    expect(forgotPasswordLink.href).toBe(window.location.href); // Verify link is empty
   });
 
   test("displays 'Sign up' button", () => {
