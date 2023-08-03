@@ -14,10 +14,12 @@ import { BuyCourse } from "@/types/buyCourse.types";
 import { Course } from "@/types/course.type";
 import useAuth from "@/hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import React from "react";
 
 type AlertProps = Partial<Course> & { textButton: string}
 
 function Alert( { textButton,  _id, name, price }: AlertProps): JSX.Element {
+   const [open, setOpen] = React.useState(false);
     const {auth} = useAuth()
   const [buyCourseObject, setBuyCourseOject] = useState<BuyCourse>({
     userId: "",
@@ -40,7 +42,8 @@ console.log(buyCourseObject.courseId);
       console.log(response);
       setBuyCourseOject(buyCourseObject); // Mover esta línea aquí
       if(response.data.status=== 200){
-        alert(response.data.message)        
+        alert(response.data.message)    
+        setOpen(false);    
         navigate(from, { replace: true });
       }
     } catch (error) {
@@ -49,7 +52,7 @@ console.log(buyCourseObject.courseId);
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
         <Button color="bg-btnOscuro" text="text-white" children={textButton} />
       </DialogTrigger>
