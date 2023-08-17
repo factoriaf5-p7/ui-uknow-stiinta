@@ -13,7 +13,7 @@ interface Color {
 function TagDifficulty({ color, children }: TagDifficultyProps) {
     const colorVariants: Color = {
         Beginner: "bg-green-500",
-        Medium: "bg-orange-500",
+        Medium: "bg-orange",
         Advanced: "bg-red-500",
     }
   return (

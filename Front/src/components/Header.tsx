@@ -58,8 +58,16 @@ function Header(): JSX.Element {
         <PopoverContent>
           <h5 className="text-center font-bold font-xl mb-3">{auth.user?.data.name}</h5>
           <ul className="flex flex-col gap-4">
-            <li className="flex gap-4"><UserCircle2 />Profile</li>
-            <li className="flex gap-4"><FileStack/> Contenidos</li>
+            <li className="flex gap-4">
+          
+              <UserCircle2 />    <Link to={"/user"}>Profile
+              </Link>
+              </li>
+             
+            <li className="flex gap-4"><FileStack/>
+            <Link to={"/created-courses"}>
+             Contenidos
+            </Link></li>
             <li className="flex gap-4"><LogOut />Salir</li>
           </ul>
         </PopoverContent>

@@ -40,6 +40,7 @@ function Modal({
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/home";
+  const from2 = location.state?.form?.pathname || "/login";
   // Obtener las 15 primeras palabras de la descripción
   const truncateDescription = (str: string, numWords: number) => {
     const words: string[] = str.split(" ");
@@ -71,8 +72,16 @@ function Modal({
         setOpen(false);
         navigate(from, { replace: true });
       }
+      if (response.data.status === 400) {
+        alert("Debe loguearse para comprar el curso");
+        setOpen(false);
+        navigate(from, { replace: true });
+      }
     } catch (error) {
       console.error("Error al comprar el curso:", error);
+      alert("Debe loguearse para comprar el curso")
+      setOpen(false);
+        navigate(from2, { replace: true });
     }
   };
 

@@ -47,7 +47,7 @@ function HeroImg({ showHeroImage, setShowHeroImage }: HeroImgProps) {
             duration: 2,
             ease: "easeOut",
           }}
-          className="p-6 lg:w-1/2 h-full"
+          className="p-6 lg:w-1/2"
         >
           <img src="hero.png" className="h-full flex justify-center " alt="" onLoad={handleImageLoad} />
         </motion.div>

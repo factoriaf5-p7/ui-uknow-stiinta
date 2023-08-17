@@ -12,7 +12,7 @@ dotenv.config();
 @Module({
 	imports: [
 		// STATIC CONNECTION VERSION
-		MongooseModule.forRoot('mongodb+srv://arielaparicio100:Principe1994@cluster0.7mvk5pl.mongodb.net/uknow'),
+		MongooseModule.forRoot(process.env.URI),
 
 		// DYNAMIC CONNECTION VERSION
 		// MongooseModule.forRootAsync({
