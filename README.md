@@ -30,7 +30,7 @@ Para ejecutar el proyecto, necesitarás tener instalada la última versión de N
 Contribución
 Actualmente, no estamos aceptando contribuciones al proyecto. Sin embargo, si encuentras algún problema o tienes una idea de mejora, no dudes en abrir un problema en el repositorio.
 
-Autores
+##Autores
 Angela
 Ariel
 Carlos
